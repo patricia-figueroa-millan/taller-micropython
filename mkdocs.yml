@@ -1,0 +1,56 @@
+site_name: "MicroPython para Sistemas Embebidos e IoT"
+site_author: Patricia Elizabeth Figueroa MIllán
+
+theme:
+  name: material
+  language: es
+  logo: assets/logo.png
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - toc.integrate
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Inicio: index.md
+  - Tema 1: tema1.md
+  - Tema 2: tema2.md
+  - Tema 3: tema3.md
+  - Tema 4: tema4.md
+  - Proyecto: proyecto.md
+  - Recursos: recursos.md
+
+
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.mark          # For text highlighting (==text==)
+  - pymdownx.highlight     # For code block syntax highlighting
+  - pymdownx.superfences   # For nested code blocks and advanced layout
+  - pymdownx.inlinehilite  # For inline code syntax highlighting
+  - md_in_html

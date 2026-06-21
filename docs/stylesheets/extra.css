@@ -1,0 +1,122 @@
+.md-nav--primary .md-nav__title {
+    display: none;
+}
+
+/* Tamaño del logo */
+.md-header__button.md-logo img {
+    height: 90px !important;
+    width: auto !important;
+}
+
+
+/* ===== Tipografía general ===== */
+.md-typeset {
+    font-size: 0.78rem;
+    line-height: 1.7;
+}
+
+/* ===== Título principal ===== */
+.md-typeset h1 {
+    color: #263238;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #b0bec5;
+    padding-bottom: 0.6rem;
+}
+
+/* ===== Secciones principales ===== */
+.md-typeset h2 {
+    color: #37474f;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-top: 2.2rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #eceff1;
+    padding-bottom: 0.3rem;
+}
+
+/* ===== Subsecciones ===== */
+.md-typeset h3 {
+    color: #455a64;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 1.8rem;
+    margin-bottom: 0.6rem;
+}
+
+/* ===== Subapartados ===== */
+.md-typeset h4 {
+    color: #00695c;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== Títulos pequeños ##### ===== */
+.md-typeset h5 {
+    color: #546e7a;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+/* ===== Títulos ###### ===== */
+.md-typeset h6 {
+    color: #607d8b;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.md-typeset table:not([class]) {
+    font-size: .7rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+    background-color: #607d8b;
+    color: white;
+}
+
+.md-typeset table:not([class]) tr:hover {
+    background-color: #eceff1;
+}
+
+/* Párrafos */
+.md-typeset p {
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Elementos de listas */
+.md-typeset li {
+    text-align: justify;
+}
+
+/* Tablas más compactas */
+.md-typeset table:not([class]) {
+    font-size: 0.7rem;
+}
+
+/* Encabezado */
+.md-typeset table:not([class]) th {
+    padding: 0.6rem 0.8rem;
+}
+
+/* Celdas */
+.md-typeset table:not([class]) td {
+    padding: 0.5rem 0.8rem;
+}
+
+/* Menor altura entre filas */
+.md-typeset table:not([class]) tr {
+    line-height: 1.4;
+}
