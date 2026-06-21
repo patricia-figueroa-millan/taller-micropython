@@ -5,6 +5,7 @@ theme:
   name: material
   language: es
   logo: assets/logo.png
+  favicon: assets/favicon.png
   palette:
     - scheme: default
       primary: blue grey
@@ -46,7 +47,6 @@ nav:
   - Recursos: recursos.md
 
 
-
 markdown_extensions:
   - attr_list
   - pymdownx.mark          # For text highlighting (==text==)
@@ -54,3 +54,9 @@ markdown_extensions:
   - pymdownx.superfences   # For nested code blocks and advanced layout
   - pymdownx.inlinehilite  # For inline code syntax highlighting
   - md_in_html
+
+
+copyright: |
+  Taller de MicroPython para Sistemas Embebidos e IoT<br>
+  © 2026 Patricia Elizabeth Figueroa Millán (Tecnológico Nacional de México – Instituto Tecnológico de Colima) ·
+  Ismael Amezcua Valdovinos (Universidad de Colima – Facultad de Telemática)
