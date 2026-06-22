@@ -491,10 +491,10 @@ Al finalizar, el participante será capaz de instalar el firmware MicroPython en
 
 ##### Material de apoyo
 
-📄 [Abrir o descargar la práctica en PDF](tema1/Practica1_ESP32_MicroPython.pdf)
+📄 [Abrir o descargar la práctica en PDF](Practica1_ESP32_MicroPython.pdf)
 
 <iframe
-    src="tema1/Practica1_ESP32_MicroPython.pdf"
+    src="Practica1_ESP32_MicroPython.pdf"
     width="100%"
     height="800px">
 </iframe>
