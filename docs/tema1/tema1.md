@@ -33,7 +33,7 @@ De acuerdo con Marwedel (2021), un sistema embebido es un sistema computacional 
 
 ###### Arquitectura típica
 
-![Prueba](assets/arq1.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/arq1.png){ width="600px" style="display:block;margin:auto" }
 
 ##### 1.1.2 Sistemas Embebidos Conectados
 
@@ -61,7 +61,7 @@ La incorporación de interfaces de comunicación permitió que los sistemas embe
 
 ###### Arquitectura típica
 
-![Prueba](assets/arq2.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/arq2.png){ width="600px" style="display:block;margin:auto" }
 
 
 ##### 1.1.3 Internet de las Cosas (IoT)
@@ -83,7 +83,7 @@ Según Bahga y Madisetti, IoT puede definirse como una red de objetos físicos c
 * Domótica.
 
 ###### Arquitectura típica
-![Prueba](assets/arq3.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/arq3.png){ width="600px" style="display:block;margin:auto" }
 
 
 ##### 1.1.4 Convergencia OT/IT
@@ -99,7 +99,7 @@ Durante muchos años ambos entornos permanecieron prácticamente aislados. Sin e
 Actualmente es común encontrar dispositivos embebidos capaces de interactuar simultáneamente con sensores y actuadores del mundo físico, mientras intercambian información con plataformas digitales, dashboards y servicios en la nube.
 
 ###### Arquitectura conceptual
-![Prueba](assets/ot_it.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/ot_it.png){ width="600px" style="display:block;margin:auto" }
 
 
 ###### Ejemplos
@@ -126,7 +126,7 @@ Satyanarayanan define Edge Computing como un modelo donde el procesamiento se de
 ###### Arquitectura típica
 
 
-![Prueba](assets/arq4.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/arq4.png){ width="600px" style="display:block;margin:auto" }
 
 ==No todo procesamiento debe realizarse en la nube; parte de la inteligencia puede ejecutarse cerca de donde se generan los datos.==
 
@@ -150,7 +150,7 @@ La Edge Intelligence consiste en ejecutar algoritmos de análisis y toma de deci
 * Inferencia mediante modelos ligeros de IA.
 
 ###### Arquitectura conceptual
-![Prueba](assets/edgeintelligence.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/edgeintelligence.png){ width="600px" style="display:block;margin:auto" }
 
 ###### Ejemplos
 * Encender un ventilador sin consultar la nube.
@@ -183,7 +183,7 @@ mediante ciclos continuos de monitoreo y actuación.
 
 ###### Arquitectura típica
 
-![Prueba](assets/arq5.png){ width="900px" style="display:block;margin:auto" }
+![Prueba](../assets/arq5.png){ width="900px" style="display:block;margin:auto" }
 
 Los Sistemas Ciberfísicos representan la convergencia entre computación, comunicación y procesos físicos, permitiendo que los dispositivos monitoreen el entorno, tomen decisiones y actúen sobre él en ciclos continuos de retroalimentación.
 
@@ -217,7 +217,7 @@ Cada nodo puede asumir responsabilidades específicas relacionadas con sensado, 
 
 ###### Arquitectura conceptual
 
-![Prueba](assets/arquitecturadist.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/arquitecturadist.png){ width="600px" style="display:block;margin:auto" }
 
 
 Las arquitecturas distribuidas constituyen la base de muchas soluciones IoT modernas y de los Sistemas Ciberfísicos, donde múltiples dispositivos cooperan para monitorear, controlar y optimizar procesos físicos.
@@ -227,7 +227,7 @@ Las arquitecturas distribuidas constituyen la base de muchas soluciones IoT mode
 ##### 1.1.9 Relación entre conceptos
 La evolución puede representarse de la siguiente manera:
 
-![Prueba](assets/ev.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/ev.png){ width="600px" style="display:block;margin:auto" }
 
 Cada etapa incorpora nuevas capacidades sin reemplazar completamente a la anterior.
 
@@ -337,7 +337,7 @@ MicroPython fue diseñado para favorecer:
 
 **MicroPython no busca reemplazar a C/C++**: Ambos enfoques son complementarios. MicroPython destaca en aplicaciones de prototipado rápido, IoT, Edge Computing y sistemas conectados, mientras que C/C++ continúa siendo la opción preferida para aplicaciones con restricciones estrictas de memoria, desempeño o tiempo real.
 
-![Prueba](assets/ardvsmicro.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/ardvsmicro.png){ width="600px" style="display:block;margin:auto" }
 
 ##### Ventajas
 
@@ -370,7 +370,7 @@ Ejemplos:
 * Heap: memoria dinámica utilizada por objetos.
 * Garbage collectos: mecanismo automático de liberación de memoria.
 
-![Prueba](assets/arqMicroPython.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/arqMicroPython.png){ width="600px" style="display:block;margin:auto" }
 
 ##### Implicaciones para el desarrollador
 * Memoria: uso del heap.
@@ -395,7 +395,7 @@ Ejemplos:
 
 ###### ¿Por qué es tan popular en IoT?
 Porque integra:
-![Prueba](assets/esp32iot.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/esp32iot.png){ width="600px" style="display:block;margin:auto" }
 en una sola plataforma.
 
 ###### Casos de aplicación
@@ -406,7 +406,7 @@ en una sola plataforma.
 * Industria 4.0.
 
 Arquitectura Interna del ESP32
-![Prueba](assets/esp32arq.png){ width="600px" style="display:block;margin:auto" }
+![Prueba](../assets/esp32arq.png){ width="600px" style="display:block;margin:auto" }
 
 ##### STM32
 
@@ -491,10 +491,10 @@ Al finalizar, el participante será capaz de instalar el firmware MicroPython en
 
 ##### Material de apoyo
 
-📄 [Abrir o descargar la práctica en PDF](Practica1_ESP32_MicroPython.pdf)
+📄 [Abrir o descargar la práctica en PDF](tema1/Practica1_ESP32_MicroPython.pdf)
 
 <iframe
-    src="Practica1_ESP32_MicroPython.pdf"
+    src="tema1/Practica1_ESP32_MicroPython.pdf"
     width="100%"
     height="800px">
 </iframe>
