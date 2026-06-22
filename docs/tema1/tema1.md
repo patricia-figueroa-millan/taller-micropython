@@ -498,3 +498,19 @@ Al finalizar, el participante será capaz de instalar el firmware MicroPython en
     width="100%"
     height="800">
 </iframe>
+
+#### Práctica 2. Interacción con el REPL de MicroPython
+
+En esta práctica el participante aprenderá a utilizar el entorno REPL (Read-Eval-Print Loop) de MicroPython como mecanismo principal para interactuar con la tarjeta ESP32. A través de la consola integrada de Thonny, se establecerá comunicación directa con el microcontrolador para ejecutar instrucciones de manera inmediata, explorar las capacidades básicas del lenguaje, verificar el funcionamiento de la placa y comprender el flujo de interpretación de código en sistemas embebidos.
+
+Durante la práctica se realizarán pruebas básicas de entrada y salida, operaciones aritméticas, manejo de variables y ejecución de instrucciones directamente sobre el dispositivo, permitiendo familiarizarse con el entorno de desarrollo y con el proceso de depuración interactiva que ofrece MicroPython.
+
+##### Competencias a desarrollar
+
+* Identificar la función del REPL como herramienta de interacción y depuración en sistemas embebidos basados en MicroPython.
+* Establecer comunicación entre la computadora y una tarjeta ESP32 utilizando Thonny.
+* Ejecutar instrucciones y expresiones de Python directamente desde el REPL.
+* Manipular variables y realizar operaciones básicas en tiempo real sobre el microcontrolador.
+* Interpretar los mensajes de respuesta generados por el intérprete de MicroPython.
+* Verificar el correcto funcionamiento de la placa mediante pruebas interactivas.
+* Utilizar el REPL como herramienta inicial para el desarrollo, prueba y depuración de aplicaciones embebidas.
