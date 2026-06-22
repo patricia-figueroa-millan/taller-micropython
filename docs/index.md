@@ -1,10 +1,12 @@
 # Bienvenido
 
-Este sitio reúne el material de apoyo utilizado durante el taller, incluyendo contenidos teóricos, prácticas guiadas, ejemplos de código, recursos complementarios y el proyecto integrador que se desarrollará a lo largo de las sesiones.
+Este sitio reúne el material de apoyo desarrollado para el **Taller de MicroPython para Sistemas Embebidos e IoT**, incluyendo contenidos teóricos, prácticas guiadas, ejemplos de código, recursos complementarios y el proyecto integrador que se desarrollará a lo largo de las sesiones.
 
-La intención es proporcionar una introducción práctica al desarrollo de aplicaciones embebidas modernas utilizando MicroPython y ESP32, integrando conceptos de sensado, actuación, comunicación inalámbrica y plataformas IoT.
+El material ha sido elaborado de manera colaborativa por **Patricia Elizabeth Figueroa Millán** (Instituto Tecnológico de Colima) e **Ismael Amezcua Valdovinos** (Universidad de Colima, Facultad de Telemática), con el propósito de proporcionar una introducción práctica al desarrollo de aplicaciones embebidas modernas utilizando MicroPython y ESP32, integrando conceptos de sensado, actuación, comunicación inalámbrica y plataformas IoT.
 
-A lo largo del taller se abordarán aspectos relacionados con la programación de microcontroladores, adquisición de datos, control de dispositivos, protocolos de comunicación y arquitecturas distribuidas comúnmente utilizadas en aplicaciones IoT, Edge Computing y Sistemas Ciberfísicos.
+A lo largo del taller se abordarán aspectos relacionados con la programación de microcontroladores, adquisición de datos, control de dispositivos, protocolos de comunicación y arquitecturas distribuidas comúnmente utilizadas en aplicaciones de **Internet de las Cosas (IoT)**, **Edge Computing** y **Sistemas Ciberfísicos (CPS)**.
+
+Se espera que los participantes desarrollen las competencias necesarias para diseñar, implementar y desplegar soluciones IoT funcionales, empleando herramientas de software y hardware abierto ampliamente utilizadas en entornos académicos, industriales y de investigación.
 
 ---
 
