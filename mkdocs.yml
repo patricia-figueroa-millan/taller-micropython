@@ -1,6 +1,9 @@
 site_name: "MicroPython para Sistemas Embebidos e IoT"
 site_author: Patricia Elizabeth Figueroa MIllán , Ismael Amezcua Valdovinos
+site_url: https://micropython.elizabethfigueroa.com
 
+extra:
+  cname: micropython.elizabethfigueroa.com
 theme:
   name: material
   language: es
