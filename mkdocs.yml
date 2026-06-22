@@ -39,10 +39,10 @@ extra_css:
 
 nav:
   - Inicio: index.md
-  - Tema 1: tema1.md
-  - Tema 2: tema2.md
-  - Tema 3: tema3.md
-  - Tema 4: tema4.md
+  - Tema 1: tema1/tema1.md
+  - Tema 2: tema2/tema2.md
+  - Tema 3: tema3/tema3.md
+  - Tema 4: tema4/tema4.md
   - Proyecto: proyecto.md
   - Recursos: recursos.md
 

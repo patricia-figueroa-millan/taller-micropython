@@ -259,6 +259,7 @@ Finalmente:
 
 
 ### 2. MicroPython y plataformas ESP32/STM32
+
 #### 2.1 El desafío del desarrollo embebido moderno
 Los sistemas embebidos actuales ya no se limitan a ejecutar una única función de control local.
 
@@ -309,6 +310,7 @@ MicroPython fue diseñado para favorecer:
 
 
 #### 2.3 ¿Por qué MicroPython?
+
 ##### Comparación con Arduino
 
 | Característica | Arduino (C/C++) | MicroPython |
@@ -464,3 +466,35 @@ ESP32 destaca por integrar conectividad inalámbrica y facilitar el desarrollo d
 
 #### 2.6 Conclusión
 La creciente complejidad de los sistemas embebidos modernos ha impulsado la adopción de herramientas que permitan reducir el tiempo de desarrollo sin sacrificar capacidades de conectividad e integración. En este contexto, MicroPython representa una alternativa atractiva para el desarrollo de aplicaciones IoT y Edge Computing sobre plataformas como ESP32 y STM32, proporcionando un entorno flexible, interactivo y orientado al prototipado rápido.
+
+### 3. Configuración del Entorno y REPL
+
+El desarrollo de aplicaciones embebidas con MicroPython requiere la preparación de un entorno de trabajo que permita programar, depurar e interactuar con el hardware de manera eficiente. En esta sección se abordará la instalación y configuración de las herramientas necesarias para trabajar con ESP32 y MicroPython, así como el uso del **REPL (Read-Eval-Print Loop)**, una de las características más importantes de MicroPython.
+
+A diferencia de otros entornos de desarrollo para sistemas embebidos, el REPL permite ejecutar instrucciones de manera interactiva y obtener resultados inmediatos, facilitando la exploración del hardware, la validación de ideas y el desarrollo rápido de prototipos.
+
+Las siguientes prácticas tienen como objetivo familiarizar al participante con el entorno de desarrollo y con la forma de trabajo interactiva que caracteriza a MicroPython.
+
+#### Práctica 1. Configuración del Entorno de Desarrollo ESP32 + MicroPython
+
+Antes de desarrollar aplicaciones embebidas es necesario preparar el entorno de trabajo. En esta práctica se realizará la instalación y configuración de las herramientas requeridas para programar dispositivos ESP32 utilizando MicroPython.
+
+Al finalizar, el participante será capaz de instalar el firmware MicroPython en una tarjeta ESP32, configurar el entorno Thonny y ejecutar un primer programa de prueba para verificar el correcto funcionamiento del sistema.
+
+##### Competencias desarrolladas
+
+* Instalar y configurar el entorno de desarrollo MicroPython.
+* Identificar y configurar el puerto de comunicación de la ESP32.
+* Flashear firmware MicroPython sobre una plataforma ESP32.
+* Configurar Thonny para el desarrollo de aplicaciones embebidas.
+* Ejecutar un primer programa de prueba.
+
+##### Material de apoyo
+
+📄 [Abrir o descargar la práctica en PDF](Practica1_ESP32_MicroPython.pdf)
+
+<iframe
+    src="Practica1_ESP32_MicroPython.pdf"
+    width="100%"
+    height="800px">
+</iframe>
