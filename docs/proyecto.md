@@ -1,0 +1,3 @@
+# Proyecto Integrador: Red distribuida de estaciones ambientales IoT con MicroPython
+
+El proyecto integrador consiste en el desarrollo incremental de una mini estación ambiental distribuida basada en ESP32 y MicroPython. Cada estación mide temperatura y humedad mediante un sensor DHT22, muestra los datos localmente en una pantalla OLED y publica la información mediante MQTT. Además, cada estación puede recibir comandos remotos para configurar umbrales de alarma, modificar la frecuencia de muestreo y activar o desactivar alertas. Los datos son almacenados en Supabase y visualizados en un dashboard web, permitiendo el monitoreo y control remoto de múltiples estaciones mediante tópicos MQTT y wildcards.
