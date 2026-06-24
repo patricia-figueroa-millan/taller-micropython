@@ -183,27 +183,20 @@ ssd1306.py
 
 5. Guardar en la memoria del ESP32.
 
-## Verificación
-
-```python
-import os
-
-os.listdir()
-```
-
-Importar:
-
-```python
-import ssd1306
-
-dir(ssd1306)
-```
-
----
-
 # 2.4 Integración de Dispositivos mediante I2C: OLED SSD1306
 
-## Conexión
+La pantalla OLED SSD1306 utiliza el protocolo de comunicación I2C (Inter-Integrated Circuit), ampliamente empleado en sistemas embebidos para conectar sensores, memorias, pantallas y otros periféricos.
+
+Una de sus principales ventajas es que múltiples dispositivos pueden compartir el mismo bus utilizando únicamente dos líneas de comunicación.
+
+```text
+SDA → Datos
+SCL → Reloj
+```
+
+En esta arquitectura el ESP32 actúa como maestro y coordina la comunicación con los dispositivos conectados al bus.
+
+## Conexión de la pantalla OLED
 
 | OLED | ESP32 |
 |------|--------|
@@ -224,6 +217,19 @@ i2c = I2C(
     freq=100000
 )
 ```
+En caso de que se muestre un error de =="I2C operation not supported"==, es importante conocer que este generalmente indica una limitación a nivel de hardware con el microcontrolador, una interfaz 12c deshabilitada.
+
+Esta limitación puede ser resuelta cambiando a Software I2C en MicroPython, como se muestra a continuación:
+
+```python
+from machine import Pin, SoftI2C
+
+i2c = SoftI2C(
+    scl=Pin(22),
+    sda=Pin(21),
+    freq=400000)
+
+```
 
 ## Escaneo de dispositivos
 
@@ -242,6 +248,8 @@ o
 ```python
 [61]
 ```
+
+Para esto, es importante realizar la operación usando  
 
 ## Creación del objeto OLED
 
