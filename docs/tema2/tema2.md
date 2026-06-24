@@ -15,7 +15,6 @@ A lo largo del curso, la solución será construida de manera incremental. En es
 
 Durante el desarrollo del tema, además de aprender a utilizar sensores y dispositivos de visualización, se introducirá una metodología práctica para explorar bibliotecas y objetos de MicroPython mediante el REPL, permitiendo que los participantes puedan descubrir y comprender nuevas funcionalidades de forma autónoma.
 
----
 
 ## 2.2 Programación de Periféricos en MicroPython
 
