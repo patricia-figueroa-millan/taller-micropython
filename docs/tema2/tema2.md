@@ -1012,7 +1012,7 @@ En este ciclo:
 5. Se imprimen los datos en consola.
 6. Se espera el intervalo de lectura configurado.
 
-## Código integrado de la Práctica 2
+## Código integrado de la Práctica 2 modificado
 
 ```python
 from machine import Pin, SoftI2C
