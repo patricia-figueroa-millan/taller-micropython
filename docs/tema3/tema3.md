@@ -1249,9 +1249,9 @@ hum_max = 80
 intervalo_lectura = 2
 
 # Tópicos MQTT
-topic_temp = "estaciones/" + station_id + "/temperatura"
-topic_hum = "estaciones/" + station_id + "/humedad"
-topic_estado = "estaciones/" + station_id + "/estado"
+topic_temp = "estaciones/" + MQTT_CLIENT_ID + "/temperatura"
+topic_hum = "estaciones/" + MQTT_CLIENT_ID + "/humedad"
+topic_estado = "estaciones/" + MQTT_CLIENT_ID + "/estado"
 
 # Configuración del sensor DHT22
 dht_pin = Pin(4)
@@ -1284,7 +1284,7 @@ try:
         utime.sleep(2)
 
 except OSError as e:
-    print("Error: fallo de comunicación con la OLED")
+    print("Error: fallo de comunicacion con la OLED")
     print("Detalle del error:", e)
 
 except Exception as e:
@@ -1394,7 +1394,7 @@ def evaluar_estado(temp, hum):
 
 def preparar_datos(temp, hum, estado):
     datos = {
-        "station_id": station_id,
+        "station_id": MQTT_CLIENT_ID,
         "temperatura": temp,
         "humedad": hum,
         "estado": estado,
@@ -1494,13 +1494,19 @@ while True:
         print("Error durante ejecucion:", e)
         utime.sleep(intervalo_lectura)
 ```
-Los tópicos publicados quedan así:
+
+Los tópicos publicados quedan estructurados utilizando el identificador único del cliente MQTT (`MQTT_CLIENT_ID`), por ejemplo:
 
 ```text
-estaciones/estacion_01/temperatura
-estaciones/estacion_01/humedad
-estaciones/estacion_01/estado
-````
+estaciones/estacion_01_c8f09e47e7ac/temperatura
+estaciones/estacion_01_c8f09e47e7ac/humedad
+estaciones/estacion_01_c8f09e47e7ac/estado
+```
 
+donde `estacion_01_c8f09e47e7ac` corresponde al valor generado dinámicamente mediante:
 
+```python
+MQTT_CLIENT_ID = station_id + "_" + ubinascii.hexlify(machine.unique_id()).decode()
+```
 
+El uso de `MQTT_CLIENT_ID` permite que cada estación publique sobre tópicos únicos dentro del broker MQTT, evitando colisiones cuando existen varias estaciones conectadas al mismo tiempo.
