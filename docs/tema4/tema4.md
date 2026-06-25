@@ -1,7 +1,6 @@
 # Tema 4. Configuración remota mediante MQTT
 
 ## 4.1 Introducción
-## 4.1 Introducción
 
 En el tema anterior se incorporó la conectividad WiFi y la comunicación MQTT a la estación ambiental basada en ESP32. Con ello, el nodo dejó de funcionar únicamente como una estación local y comenzó a publicar datos de temperatura, humedad y estado ambiental hacia un broker MQTT, permitiendo su monitoreo remoto en tiempo real.
 
