@@ -29,12 +29,11 @@ Entre sus principales ventajas destacan:
 
 | Tema | Descripción | Acceso |
 |-------|------------|---------|
-| Tema 1 | Introducción a MicroPython y Sistemas Embebidos e IoT | [Abrir](tema1.md) |
-| Tema 2 | ESP32 y entorno de desarrollo | [Abrir](tema2.md) |
-| Tema 3 | Sensado y actuación | [Abrir](tema3.md) |
-| Tema 4 | Comunicación IoT | [Abrir](tema4.md) |
-| Proyecto Integrador | Desarrollo de la solución final | [Abrir](proyecto.md) |
-| Recursos | Bibliografía, enlaces y material complementario | [Abrir](recursos.md) |
+| Tema 1 | Introducción a MicroPython y Sistemas Embebidos e IoT | [Abrir](/docs/tema1/tema1.md) |
+| Tema 2 | ESP32 y entorno de desarrollo | [Abrir](/docs/tema2/tema2.md) |
+| Tema 3 | Sensado y actuación | [Abrir](/docs/tema3/tema3.md) |
+| Tema 4 | Comunicación IoT | [Abrir](/docs/tema4/tema4.md) |
+| Tema 5 | Supabase y Streamlit | [Abrir](/docs/tema4/tema4.md) |
 
 ## Metodología de trabajo
 
