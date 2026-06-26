@@ -1,0 +1,2121 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Patricia Elizabeth Figueroa MIllán , Ismael Amezcua Valdovinos">
+      
+      
+        <link rel="canonical" href="https://micropython.elizabethfigueroa.com/tema1/tema1/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../tema2/tema2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tema 1 - MicroPython para Sistemas Embebidos e IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objetivo-del-tema" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-header__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MicroPython para Sistemas Embebidos e IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema2/tema2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema3/tema3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema4/tema4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema5/tema5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 5
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-nav__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    MicroPython para Sistemas Embebidos e IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-del-tema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo del Tema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivo del Tema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sistemas-embebidos-e-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sistemas Embebidos e IoT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Sistemas Embebidos e IoT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-evolucion-de-los-sistemas-embebidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Evolución de los Sistemas Embebidos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Evolución de los Sistemas Embebidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-sistemas-embebidos-tradicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.1 Sistemas Embebidos Tradicionales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.1 Sistemas Embebidos Tradicionales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-tipica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura típica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-sistemas-embebidos-conectados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.2 Sistemas Embebidos Conectados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.2 Sistemas Embebidos Conectados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tecnologias-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tecnologías comunes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-tipica_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura típica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-internet-de-las-cosas-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.3 Internet de las Cosas (IoT)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.3 Internet de las Cosas (IoT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-tipica_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura típica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-convergencia-otit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.4 Convergencia OT/IT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.4 Convergencia OT/IT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-conceptual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura conceptual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-edge-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.5 Edge Computing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.5 Edge Computing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-tipica_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura típica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#116-edge-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.6 Edge Intelligence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.6 Edge Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capacidades-tipicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacidades típicas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-conceptual_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura conceptual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacion-con-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relación con MicroPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#117-sistemas-ciberfisicos-cps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.7 Sistemas Ciberfísicos (CPS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.7 Sistemas Ciberfísicos (CPS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-tipica_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura típica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#118-arquitecturas-distribuidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.8 Arquitecturas distribuidas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.8 Arquitecturas distribuidas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-conceptual_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura conceptual
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#119-relacion-entre-conceptos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.9 Relación entre conceptos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#111-10-discusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.1 10 Discusión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-micropython-y-plataformas-esp32stm32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. MicroPython y plataformas ESP32/STM32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. MicroPython y plataformas ESP32/STM32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-el-desafio-del-desarrollo-embebido-moderno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 El desafío del desarrollo embebido moderno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-que-es-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 ¿Qué es MicroPython?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 ¿Qué es MicroPython?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filosofia-de-desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filosofía de desarrollo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-por-que-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 ¿Por qué MicroPython?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 ¿Por qué MicroPython?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-con-arduino" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparación con Arduino
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ventajas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-arquitectura-de-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Arquitectura de MicroPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Arquitectura de MicroPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes principales:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implicaciones-para-el-desarrollador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implicaciones para el desarrollador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-plataformas-esp32-y-stm32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Plataformas ESP32 y STM32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Plataformas ESP32 y STM32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características principales:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-es-tan-popular-en-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué es tan popular en IoT?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#casos-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Casos de aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fortalezas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fortalezas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplicaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-vs-stm32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32 vs STM32
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Conclusión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configuracion-del-entorno-y-repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configuración del Entorno y REPL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Configuración del Entorno y REPL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practica-1-configuracion-del-entorno-de-desarrollo-esp32-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Práctica 1. Configuración del Entorno de Desarrollo ESP32 + MicroPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Práctica 1. Configuración del Entorno de Desarrollo ESP32 + MicroPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competencias-desarrolladas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competencias desarrolladas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#material-de-apoyo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material de apoyo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema2/tema2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema3/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema4/tema4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema5/tema5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Tema 1</h1>
+
+<h2 id="objetivo-del-tema">Objetivo del Tema</h2>
+<ul>
+<li><strong>Comprender</strong> el papel de <strong>MicroPython como plataforma para el desarrollo de sistemas embebidos modernos</strong>, identificar su relación con IoT y configurar el entorno de trabajo sobre ESP32 para el desarrollo de aplicaciones embebidas.</li>
+</ul>
+<h3 id="1-sistemas-embebidos-e-iot">1. Sistemas Embebidos e IoT</h3>
+<p>Los <strong>sistemas embebidos</strong> y el <strong>Internet de las Cosas (IoT)</strong> son <mark>conceptos estrechamente vinculados en el desarrollo tecnológico actual</mark> , donde los primeros actúan como la base fundamental que permite la existencia del segundo.</p>
+<h4 id="11-evolucion-de-los-sistemas-embebidos">1.1 Evolución de los Sistemas Embebidos</h4>
+<p>Los sistemas embebidos han evolucionado desde dispositivos diseñados para realizar una función específica de manera aislada, hasta convertirse en componentes fundamentales de arquitecturas distribuidas capaces de comunicarse, intercambiar información y participar en procesos de toma de decisiones.</p>
+<p>Esta evolución ha dado origen a conceptos como Internet de las Cosas (IoT), Edge Computing y Sistemas Ciberfísicos (CPS), ampliamente utilizados en aplicaciones industriales, agrícolas, médicas y de automatización.</p>
+<h5 id="111-sistemas-embebidos-tradicionales">1.1.1 Sistemas Embebidos Tradicionales</h5>
+<p>De acuerdo con Marwedel (2021), un sistema embebido es un sistema computacional integrado dentro de un sistema mayor y diseñado para realizar funciones específicas.</p>
+<h6 id="caracteristicas">Características</h6>
+<ul>
+<li>Función específica.</li>
+<li>Recursos limitados.</li>
+<li>Operación autónoma.</li>
+<li>Generalmente sin conectividad externa.</li>
+</ul>
+<h6 id="ejemplos">Ejemplos</h6>
+<ul>
+<li>Controlador de una lavadora.</li>
+<li>Sistema ABS de un automóvil.</li>
+<li>Controlador de microondas.</li>
+<li>Termostato electrónico.</li>
+</ul>
+<h6 id="arquitectura-tipica">Arquitectura típica</h6>
+<p><img alt="Prueba" src="../../assets/arq1.png" style="display:block;margin:auto" width="600px" /></p>
+<h5 id="112-sistemas-embebidos-conectados">1.1.2 Sistemas Embebidos Conectados</h5>
+<p>La incorporación de interfaces de comunicación permitió que los sistemas embebidos intercambiaran información con otros dispositivos.</p>
+<h6 id="tecnologias-comunes">Tecnologías comunes</h6>
+<ul>
+<li>UART</li>
+<li>SPI</li>
+<li>I2C</li>
+<li>CAN Bus</li>
+<li>Modbus</li>
+</ul>
+<h6 id="caracteristicas_1">Características</h6>
+<ul>
+<li>Comunicación local.</li>
+<li>Intercambio de datos.</li>
+<li>Supervisión externa.</li>
+</ul>
+<h6 id="ejemplos_1">Ejemplos</h6>
+<ul>
+<li>PLCs conectados mediante Modbus.</li>
+<li>Redes CAN en vehículos.</li>
+<li>Sistemas SCADA.</li>
+</ul>
+<h6 id="arquitectura-tipica_1">Arquitectura típica</h6>
+<p><img alt="Prueba" src="../../assets/arq2.png" style="display:block;margin:auto" width="600px" /></p>
+<h5 id="113-internet-de-las-cosas-iot">1.1.3 Internet de las Cosas (IoT)</h5>
+<p>Según Bahga y Madisetti, IoT puede definirse como una red de objetos físicos capaces de adquirir información, comunicarse e intercambiar datos a través de Internet.</p>
+<h6 id="caracteristicas_2">Características</h6>
+<ul>
+<li>Conectividad IP.</li>
+<li>Monitoreo remoto.</li>
+<li>Interoperabilidad.</li>
+<li>Integración con plataformas en la nube.</li>
+</ul>
+<h6 id="ejemplos_2">Ejemplos</h6>
+<ul>
+<li>Sensores ambientales conectados.</li>
+<li>Medidores inteligentes.</li>
+<li>Agricultura inteligente.</li>
+<li>Domótica.</li>
+</ul>
+<h6 id="arquitectura-tipica_2">Arquitectura típica</h6>
+<p><img alt="Prueba" src="../../assets/arq3.png" style="display:block;margin:auto" width="600px" /></p>
+<h5 id="114-convergencia-otit">1.1.4 Convergencia OT/IT</h5>
+<p>Tradicionalmente, los sistemas industriales y de automatización operaban en entornos separados de los sistemas informáticos empresariales.</p>
+<p>Por un lado, las <strong>Tecnologías de Operación (Operational Technology, OT)</strong> se encargaban de monitorear y controlar procesos físicos mediante sensores, actuadores, PLCs, sistemas SCADA y redes industriales. Su principal objetivo era garantizar la continuidad, seguridad y confiabilidad de la operación.</p>
+<p>Por otro lado, las <strong>Tecnologías de Información (Information Technology, IT)</strong> se enfocaban en el almacenamiento, procesamiento y análisis de datos mediante servidores, bases de datos, aplicaciones empresariales y servicios en la nube.</p>
+<p>Durante muchos años ambos entornos permanecieron prácticamente aislados. Sin embargo, la aparición del Internet de las Cosas (IoT), el Edge Computing y la Industria 4.0 ha impulsado una integración cada vez mayor entre ambos dominios.</p>
+<p>Actualmente es común encontrar dispositivos embebidos capaces de interactuar simultáneamente con sensores y actuadores del mundo físico, mientras intercambian información con plataformas digitales, dashboards y servicios en la nube.</p>
+<h6 id="arquitectura-conceptual">Arquitectura conceptual</h6>
+<p><img alt="Prueba" src="../../assets/ot_it.png" style="display:block;margin:auto" width="600px" /></p>
+<h6 id="ejemplos_3">Ejemplos</h6>
+<ul>
+<li>Un PLC que publica información mediante MQTT.</li>
+<li>Un sistema SCADA conectado a una base de datos en la nube.</li>
+<li>Un sistema de monitoreo energético con dashboard web.</li>
+<li>Una línea de producción cuyos indicadores se visualizan en tiempo real mediante una aplicación web.</li>
+</ul>
+<p><mark>IoT actúa como puente entre el mundo físico (OT) y el mundo digital (IT).</mark></p>
+<h5 id="115-edge-computing">1.1.5 Edge Computing</h5>
+<p>Conforme aumentó la cantidad de dispositivos IoT, surgió la necesidad de procesar parte de la información cerca de donde ésta se genera.</p>
+<p>Satyanarayanan define Edge Computing como un modelo donde el procesamiento se desplaza desde la nube hacia los dispositivos cercanos al origen de los datos.</p>
+<h6 id="caracteristicas_3">Características</h6>
+<ul>
+<li>Menor latencia.</li>
+<li>Menor tráfico hacia la nube.</li>
+<li>Respuesta más rápida.</li>
+<li>Mayor autonomía.</li>
+</ul>
+<h6 id="arquitectura-tipica_3">Arquitectura típica</h6>
+<p><img alt="Prueba" src="../../assets/arq4.png" style="display:block;margin:auto" width="600px" /></p>
+<p><mark>No todo procesamiento debe realizarse en la nube; parte de la inteligencia puede ejecutarse cerca de donde se generan los datos.</mark></p>
+<h5 id="116-edge-intelligence">1.1.6 Edge Intelligence</h5>
+<p>En las primeras aplicaciones IoT, los dispositivos se limitaban a adquirir datos y enviarlos hacia servidores remotos o plataformas en la nube para su procesamiento.</p>
+<p>Sin embargo, conforme aumentó el número de dispositivos conectados, surgieron limitaciones relacionadas con la latencia, el ancho de banda, la disponibilidad de la red y la necesidad de respuestas en tiempo real.</p>
+<p>Como consecuencia, los dispositivos comenzaron a incorporar capacidades de procesamiento local, dando origen al concepto de Edge Intelligence.</p>
+<p>La Edge Intelligence consiste en ejecutar algoritmos de análisis y toma de decisiones directamente en el dispositivo o cerca de la fuente de datos, reduciendo la dependencia de servicios remotos.</p>
+<h6 id="capacidades-tipicas">Capacidades típicas</h6>
+<ul>
+<li>Filtrado de datos.</li>
+<li>Detección de eventos.</li>
+<li>Clasificación de estados.</li>
+<li>Toma de decisiones locales.</li>
+<li>Ejecución de reglas de negocio.</li>
+<li>Inferencia mediante modelos ligeros de IA.</li>
+</ul>
+<h6 id="arquitectura-conceptual_1">Arquitectura conceptual</h6>
+<p><img alt="Prueba" src="../../assets/edgeintelligence.png" style="display:block;margin:auto" width="600px" /></p>
+<h6 id="ejemplos_4">Ejemplos</h6>
+<ul>
+<li>Encender un ventilador sin consultar la nube.</li>
+<li>Detectar una condición de alarma localmente.</li>
+<li>Clasificar el estado de una máquina.</li>
+<li>Ajustar automáticamente una variable de proceso.</li>
+</ul>
+<h6 id="relacion-con-micropython">Relación con MicroPython</h6>
+<p>MicroPython permite implementar fácilmente lógica de decisión directamente sobre dispositivos como ESP32, facilitando el desarrollo de aplicaciones Edge sin necesidad de infraestructura compleja.</p>
+<p><mark>No todo dato debe enviarse a la nube; muchas decisiones pueden tomarse directamente en el borde de la red.</mark></p>
+<h5 id="117-sistemas-ciberfisicos-cps">1.1.7 Sistemas Ciberfísicos (CPS)</h5>
+<p>Edward Lee define un CPS como la integración estrecha entre:</p>
+<ul>
+<li>Computación.</li>
+<li>Comunicación.</li>
+<li>Procesos físicos.</li>
+</ul>
+<p>mediante ciclos continuos de monitoreo y actuación.</p>
+<h6 id="ejemplos_5">Ejemplos</h6>
+<ul>
+<li>Vehículos autónomos.</li>
+<li>Robots colaborativos.</li>
+<li>Sistemas de riego inteligente.</li>
+<li>Redes eléctricas inteligentes.</li>
+<li>Manufactura avanzada.</li>
+</ul>
+<h6 id="arquitectura-tipica_4">Arquitectura típica</h6>
+<p><img alt="Prueba" src="../../assets/arq5.png" style="display:block;margin:auto" width="900px" /></p>
+<p>Los Sistemas Ciberfísicos representan la convergencia entre computación, comunicación y procesos físicos, permitiendo que los dispositivos monitoreen el entorno, tomen decisiones y actúen sobre él en ciclos continuos de retroalimentación.</p>
+<p><mark>Los CPS constituyen uno de los pilares tecnológicos de la Industria 4.0 y de muchas aplicaciones IoT modernas.</mark></p>
+<h5 id="118-arquitecturas-distribuidas">1.1.8 Arquitecturas distribuidas</h5>
+<p>Los sistemas embebidos tradicionales concentraban toda la funcionalidad en un único controlador responsable de adquirir datos, procesarlos y actuar sobre el entorno.</p>
+<p>Sin embargo, conforme aumentó la complejidad de las aplicaciones, surgió la necesidad de distribuir las tareas entre múltiples dispositivos especializados.</p>
+<p>Una <strong>arquitectura distribuida</strong> es aquella en la que varias unidades de procesamiento colaboran para alcanzar un objetivo común mediante el intercambio de información.</p>
+<p>Cada nodo puede asumir responsabilidades específicas relacionadas con sensado, procesamiento, comunicación o actuación.</p>
+<h6 id="caracteristicas_4">Características</h6>
+<ul>
+<li>Distribución de responsabilidades.</li>
+<li>Escalabilidad.</li>
+<li>Tolerancia a fallos.</li>
+<li>Modularidad.</li>
+<li>Interoperabilidad.</li>
+</ul>
+<h6 id="ejemplos_6">Ejemplos</h6>
+<ul>
+<li>Redes de sensores inalámbricos.</li>
+<li>Sistemas domóticos.</li>
+<li>Vehículos modernos con múltiples ECUs.</li>
+<li>Robots colaborativos.</li>
+<li>Sistemas de monitoreo industrial.</li>
+<li>Micro-redes energéticas inteligentes.</li>
+</ul>
+<h6 id="arquitectura-conceptual_2">Arquitectura conceptual</h6>
+<p><img alt="Prueba" src="../../assets/arquitecturadist.png" style="display:block;margin:auto" width="600px" /></p>
+<p>Las arquitecturas distribuidas constituyen la base de muchas soluciones IoT modernas y de los Sistemas Ciberfísicos, donde múltiples dispositivos cooperan para monitorear, controlar y optimizar procesos físicos.</p>
+<p><mark>La inteligencia ya no reside en un único controlador; se distribuye entre múltiples dispositivos capaces de colaborar entre sí.</mark></p>
+<h5 id="119-relacion-entre-conceptos">1.1.9 Relación entre conceptos</h5>
+<p>La evolución puede representarse de la siguiente manera:</p>
+<p><img alt="Prueba" src="../../assets/ev.png" style="display:block;margin:auto" width="600px" /></p>
+<p>Cada etapa incorpora nuevas capacidades sin reemplazar completamente a la anterior.</p>
+<h5 id="111-10-discusion">1.1.1 10 Discusión</h5>
+<p>¿Qué diferencia existe entre un sistema embebido tradicional y un dispositivo IoT?</p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Sistema Embebido Tradicional</th>
+<th>Dispositivo IoT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Función principal</td>
+<td>Ejecutar una tarea específica</td>
+<td>Ejecutar una tarea específica y compartir información</td>
+</tr>
+<tr>
+<td>Conectividad</td>
+<td>Generalmente inexistente o local</td>
+<td>Conectividad mediante Internet</td>
+</tr>
+<tr>
+<td>Acceso a la información</td>
+<td>Local</td>
+<td>Local y remoto</td>
+</tr>
+<tr>
+<td>Intercambio de datos</td>
+<td>Limitado</td>
+<td>Continuo y distribuido</td>
+</tr>
+<tr>
+<td>Monitoreo remoto</td>
+<td>No disponible</td>
+<td>Disponible</td>
+</tr>
+<tr>
+<td>Integración con otros sistemas</td>
+<td>Limitada</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Actualización de información</td>
+<td>Local</td>
+<td>En tiempo real o bajo demanda</td>
+</tr>
+<tr>
+<td>Ejemplos</td>
+<td>Microondas, lavadora, ABS automotriz</td>
+<td>Sensor ambiental, medidor inteligente, estación meteorológica IoT</td>
+</tr>
+<tr>
+<td>Dependencia de Internet</td>
+<td>No</td>
+<td>Generalmente sí</td>
+</tr>
+<tr>
+<td>Arquitectura típica</td>
+<td>Sensor → Controlador → Actuador</td>
+<td>Sensor → ESP32 → Red → Plataforma IoT</td>
+</tr>
+</tbody>
+</table>
+<p>Si un PLC industrial incorpora conectividad Ethernet, publica información mediante MQTT y permite monitoreo remoto a través de una plataforma web, ¿sigue siendo únicamente un sistema embebido o puede considerarse también un dispositivo IoT?</p>
+<p>Analice la respuesta considerando los conceptos revisados previamente.</p>
+<p>Finalmente:
+* <mark>¿Qué plataforma me permite construir este tipo de sistemas de forma rápida y sencilla?</mark></p>
+<h3 id="2-micropython-y-plataformas-esp32stm32">2. MicroPython y plataformas ESP32/STM32</h3>
+<h4 id="21-el-desafio-del-desarrollo-embebido-moderno">2.1 El desafío del desarrollo embebido moderno</h4>
+<p>Los sistemas embebidos actuales ya no se limitan a ejecutar una única función de control local.</p>
+<p>Es común encontrar dispositivos capaces de:</p>
+<ul>
+<li>Adquirir datos de múltiples sensores.</li>
+<li>Comunicarse mediante diferentes protocolos.</li>
+<li>Interactuar con plataformas IoT.</li>
+<li>Ejecutar procesamiento local.</li>
+<li>Participar en arquitecturas distribuidas.</li>
+</ul>
+<p>Como consecuencia, el desarrollo de software embebido se ha vuelto cada vez más complejo.</p>
+<p>Tradicionalmente estas aplicaciones se han implementado utilizando lenguajes compilados como C y C++, los cuales ofrecen un alto desempeño pero también incrementan el tiempo de desarrollo, depuración y mantenimiento.</p>
+<p>¿Qué es más costoso actualmente?</p>
+<ul>
+<li>El hardware.</li>
+<li>El software.</li>
+</ul>
+<p>Hace veinte años el hardware era la principal limitante Actualmente, en muchos proyectos, el tiempo de desarrollo del software representa el mayor costo.</p>
+<h4 id="22-que-es-micropython">2.2 ¿Qué es MicroPython?</h4>
+<p>MicroPython es una implementación ligera y eficiente del lenguaje Python 3 diseñada para ejecutarse sobre microcontroladores y sistemas con recursos limitados.</p>
+<p>Fue desarrollado por Damien George con el objetivo de llevar la productividad y simplicidad de Python al desarrollo de sistemas embebidos.</p>
+<h5 id="caracteristicas-principales">Características principales</h5>
+<ul>
+<li>Sintaxis basada en Python 3.</li>
+<li>Interpretado.</li>
+<li>Interactivo.</li>
+<li>Multiplataforma.</li>
+<li>Extensible mediante módulos.</li>
+</ul>
+<h5 id="filosofia-de-desarrollo">Filosofía de desarrollo</h5>
+<p>MicroPython fue diseñado para favorecer:
+* Desarrollo rápido
+    * Reducir tiempos de implementación.
+* Prototipado
+    * Construir soluciones funcionales rápidamente.
+* Experimentación
+    * Facilitar pruebas y validaciones.
+* Integración IoT
+    * Permitir la implementación sencilla de aplicaciones conectadas.</p>
+<h4 id="23-por-que-micropython">2.3 ¿Por qué MicroPython?</h4>
+<h5 id="comparacion-con-arduino">Comparación con Arduino</h5>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Arduino (C/C++)</th>
+<th>MicroPython</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenguaje principal</td>
+<td>C/C++</td>
+<td>Python 3 (MicroPython)</td>
+</tr>
+<tr>
+<td>Curva de aprendizaje</td>
+<td>Media</td>
+<td>Baja</td>
+</tr>
+<tr>
+<td>Tiempo de desarrollo</td>
+<td>Medio</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>Compilación previa</td>
+<td>Requerida</td>
+<td>No requerida</td>
+</tr>
+<tr>
+<td>REPL (ejecución interactiva)</td>
+<td>No</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Prototipado rápido</td>
+<td>Medio</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Depuración interactiva</td>
+<td>Limitada</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Legibilidad del código</td>
+<td>Media</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Cantidad de código requerida</td>
+<td>Mayor</td>
+<td>Menor</td>
+</tr>
+<tr>
+<td>Productividad del desarrollador</td>
+<td>Media</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Consumo de memoria</td>
+<td>Bajo</td>
+<td>Medio-Alto</td>
+</tr>
+<tr>
+<td>Velocidad de ejecución</td>
+<td>Alta</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>Control de recursos hardware</td>
+<td>Alto</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Aplicaciones de tiempo real estricto</td>
+<td>Adecuado</td>
+<td>Limitado</td>
+</tr>
+<tr>
+<td>Integración con protocolos IoT</td>
+<td>Media</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Desarrollo de pruebas y conceptos (PoC)</td>
+<td>Medio</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Portabilidad entre plataformas</td>
+<td>Media</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>Ecosistema educativo</td>
+<td>Muy amplio</td>
+<td>Amplio</td>
+</tr>
+<tr>
+<td>Ecosistema IoT</td>
+<td>Amplio</td>
+<td>Muy amplio</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MicroPython no busca reemplazar a C/C++</strong>: Ambos enfoques son complementarios. MicroPython destaca en aplicaciones de prototipado rápido, IoT, Edge Computing y sistemas conectados, mientras que C/C++ continúa siendo la opción preferida para aplicaciones con restricciones estrictas de memoria, desempeño o tiempo real.</p>
+<p><img alt="Prueba" src="../../assets/ardvsmicro.png" style="display:block;margin:auto" width="600px" /></p>
+<h5 id="ventajas">Ventajas</h5>
+<ul>
+<li>Menor cantidad de código</li>
+<li>Desarrollo interactivo</li>
+<li>Curva de aprendizaje reducida</li>
+<li>Integración sencilla con IoT</li>
+<li>Mayor productividad</li>
+</ul>
+<h5 id="limitaciones">Limitaciones</h5>
+<ul>
+<li>Mayor consumo de memoria</li>
+<li>Menor desempeño</li>
+<li>No orientado a tiempo real estricto</li>
+<li>Menor control sobre recursos internos</li>
+</ul>
+<p><mark>¿Cuándo NO utilizar MicroPython?</mark></p>
+<p>Ejemplos:
+* Control de movimiento de alta precisión.
+* Sistemas críticos de seguridad.
+* Aplicaciones con restricciones temporales estrictas.</p>
+<h4 id="24-arquitectura-de-micropython">2.4 Arquitectura de MicroPython</h4>
+<h5 id="componentes-principales">Componentes principales:</h5>
+<ul>
+<li>Firmware: software residente en el microcontrolador.</li>
+<li>Máquina virtual: ejecuta instrucciones Python.</li>
+<li>Bytecode: representación intermedia del programa</li>
+<li>Heap: memoria dinámica utilizada por objetos.</li>
+<li>Garbage collectos: mecanismo automático de liberación de memoria.</li>
+</ul>
+<p><img alt="Prueba" src="../../assets/arqMicroPython.png" style="display:block;margin:auto" width="600px" /></p>
+<h5 id="implicaciones-para-el-desarrollador">Implicaciones para el desarrollador</h5>
+<ul>
+<li>Memoria: uso del heap.</li>
+<li>Rendimiento: código interpretado.</li>
+<li>Portabilidad: el mismo programa puede ejecutarse en distintas plataformas</li>
+</ul>
+<p>¿Por qué MicroPython consume más memoria que un programa equivalente escrito en C?</p>
+<h4 id="25-plataformas-esp32-y-stm32">2.5 Plataformas ESP32 y STM32</h4>
+<h5 id="esp32">ESP32</h5>
+<h6 id="caracteristicas-principales_1">Características principales:</h6>
+<ul>
+<li>Procesador Dual-Core.</li>
+<li>WiFi integrado.</li>
+<li>Bluetooth integrado.</li>
+<li>ADC.</li>
+<li>PWM.</li>
+<li>UART.</li>
+<li>SPI.</li>
+<li>I2C.</li>
+</ul>
+<h6 id="por-que-es-tan-popular-en-iot">¿Por qué es tan popular en IoT?</h6>
+<p>Porque integra:
+<img alt="Prueba" src="../../assets/esp32iot.png" style="display:block;margin:auto" width="600px" />
+en una sola plataforma.</p>
+<h6 id="casos-de-aplicacion">Casos de aplicación</h6>
+<ul>
+<li>Domótica.</li>
+<li>Agricultura inteligente.</li>
+<li>Monitoreo remoto.</li>
+<li>Sistemas energéticos.</li>
+<li>Industria 4.0.</li>
+</ul>
+<p>Arquitectura Interna del ESP32
+<img alt="Prueba" src="../../assets/esp32arq.png" style="display:block;margin:auto" width="600px" /></p>
+<h5 id="stm32">STM32</h5>
+<p>Características generales
+* Familia de microcontroladores desarrollada por STMicroelectronics ampliamente utilizada en aplicaciones industriales.</p>
+<h6 id="fortalezas">Fortalezas</h6>
+<ul>
+<li>Bajo consumo energético.</li>
+<li>Gran variedad de periféricos.</li>
+<li>Amplia adopción industrial.</li>
+<li>Elevado desempeño.</li>
+</ul>
+<h6 id="aplicaciones">Aplicaciones</h6>
+<ul>
+<li>Automatización industrial.</li>
+<li>Instrumentación.</li>
+<li>Electrónica médica.</li>
+<li>Automotriz.</li>
+</ul>
+<h6 id="esp32-vs-stm32">ESP32 vs STM32</h6>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>ESP32</th>
+<th>STM32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fabricante</td>
+<td>Espressif Systems</td>
+<td>STMicroelectronics</td>
+</tr>
+<tr>
+<td>Arquitectura</td>
+<td>Xtensa LX6 / LX7 (según modelo)</td>
+<td>ARM Cortex-M (M0, M3, M4, M7, M33, etc.)</td>
+</tr>
+<tr>
+<td>Frecuencia de CPU</td>
+<td>Hasta 240 MHz (ESP32 clásico)</td>
+<td>Desde algunos MHz hasta más de 500 MHz según familia</td>
+</tr>
+<tr>
+<td>Núcleos</td>
+<td>Dual-Core (en muchos modelos)</td>
+<td>Generalmente Single-Core (algunas familias incluyen múltiples núcleos)</td>
+</tr>
+<tr>
+<td>Memoria RAM</td>
+<td>~520 KB SRAM (ESP32 clásico)</td>
+<td>Variable según modelo (desde KB hasta varios MB)</td>
+</tr>
+<tr>
+<td>Memoria Flash</td>
+<td>Externa SPI Flash</td>
+<td>Interna y/o externa según modelo</td>
+</tr>
+<tr>
+<td>WiFi integrado</td>
+<td>Sí</td>
+<td>Generalmente no</td>
+</tr>
+<tr>
+<td>Bluetooth integrado</td>
+<td>Sí (BLE y Clásico)</td>
+<td>Depende del modelo</td>
+</tr>
+<tr>
+<td>GPIO</td>
+<td>Amplia disponibilidad</td>
+<td>Amplia disponibilidad</td>
+</tr>
+<tr>
+<td>ADC</td>
+<td>Integrado</td>
+<td>Integrado</td>
+</tr>
+<tr>
+<td>PWM</td>
+<td>Integrado</td>
+<td>Integrado</td>
+</tr>
+<tr>
+<td>UART</td>
+<td>Integrado</td>
+<td>Integrado</td>
+</tr>
+<tr>
+<td>SPI</td>
+<td>Integrado</td>
+<td>Integrado</td>
+</tr>
+<tr>
+<td>I²C</td>
+<td>Integrado</td>
+<td>Integrado</td>
+</tr>
+<tr>
+<td>CAN Bus</td>
+<td>Disponible en algunos modelos</td>
+<td>Amplio soporte en familias industriales</td>
+</tr>
+<tr>
+<td>Consumo energético</td>
+<td>Medio</td>
+<td>Bajo a muy bajo según familia</td>
+</tr>
+<tr>
+<td>Ecosistema IoT</td>
+<td>Muy amplio</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Ecosistema industrial</td>
+<td>Medio</td>
+<td>Muy amplio</td>
+</tr>
+<tr>
+<td>Facilidad para proyectos IoT</td>
+<td>Alta</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>Facilidad para conectividad inalámbrica</td>
+<td>Alta</td>
+<td>Requiere módulos adicionales en muchos casos</td>
+</tr>
+<tr>
+<td>Soporte MicroPython</td>
+<td>Excelente</td>
+<td>Excelente</td>
+</tr>
+<tr>
+<td>Soporte Arduino</td>
+<td>Excelente</td>
+<td>Excelente</td>
+</tr>
+<tr>
+<td>Costo</td>
+<td>Bajo</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td>Curva de aprendizaje</td>
+<td>Baja</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>Aplicaciones típicas</td>
+<td>IoT, domótica, monitoreo remoto, Edge Computing</td>
+<td>Automatización industrial, instrumentación, control embebido, automotriz, dispositivos médicos</td>
+</tr>
+</tbody>
+</table>
+<p>ESP32 destaca por integrar conectividad inalámbrica y facilitar el desarrollo de aplicaciones IoT, mientras que STM32 sobresale por su amplia adopción industrial, diversidad de familias y capacidades para sistemas embebidos de alto desempeño y bajo consumo.</p>
+<table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>ESP32</th>
+<th>STM32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Cuál elegir para desarrollar un sistema IoT?</td>
+<td>Muy recomendable por integrar WiFi y Bluetooth</td>
+<td>Posible, pero normalmente requiere hardware adicional</td>
+</tr>
+<tr>
+<td>¿Cuál elegir para un sistema industrial de control?</td>
+<td>Adecuado para prototipos y aplicaciones no críticas</td>
+<td>Muy utilizado en entornos industriales</td>
+</tr>
+<tr>
+<td>¿Cuál elegir para prototipado rápido con MicroPython?</td>
+<td>Excelente opción</td>
+<td>Muy buena opción</td>
+</tr>
+<tr>
+<td>¿Cuál elegir para aplicaciones de muy bajo consumo?</td>
+<td>Bueno</td>
+<td>Generalmente mejor</td>
+</tr>
+</tbody>
+</table>
+<h4 id="26-conclusion">2.6 Conclusión</h4>
+<p>La creciente complejidad de los sistemas embebidos modernos ha impulsado la adopción de herramientas que permitan reducir el tiempo de desarrollo sin sacrificar capacidades de conectividad e integración. En este contexto, MicroPython representa una alternativa atractiva para el desarrollo de aplicaciones IoT y Edge Computing sobre plataformas como ESP32 y STM32, proporcionando un entorno flexible, interactivo y orientado al prototipado rápido.</p>
+<h3 id="3-configuracion-del-entorno-y-repl">3. Configuración del Entorno y REPL</h3>
+<p>El desarrollo de aplicaciones embebidas con MicroPython requiere la preparación de un entorno de trabajo que permita programar, depurar e interactuar con el hardware de manera eficiente. En esta sección se abordará la instalación y configuración de las herramientas necesarias para trabajar con ESP32 y MicroPython, así como el uso del <strong>REPL (Read-Eval-Print Loop)</strong>, una de las características más importantes de MicroPython.</p>
+<p>A diferencia de otros entornos de desarrollo para sistemas embebidos, el REPL permite ejecutar instrucciones de manera interactiva y obtener resultados inmediatos, facilitando la exploración del hardware, la validación de ideas y el desarrollo rápido de prototipos.</p>
+<p>Las siguientes prácticas tienen como objetivo familiarizar al participante con el entorno de desarrollo y con la forma de trabajo interactiva que caracteriza a MicroPython.</p>
+<h4 id="practica-1-configuracion-del-entorno-de-desarrollo-esp32-micropython">Práctica 1. Configuración del Entorno de Desarrollo ESP32 + MicroPython</h4>
+<p>Antes de desarrollar aplicaciones embebidas es necesario preparar el entorno de trabajo. En esta práctica se realizará la instalación y configuración de las herramientas requeridas para programar dispositivos ESP32 utilizando MicroPython.</p>
+<p>Al finalizar, el participante será capaz de instalar el firmware MicroPython en una tarjeta ESP32, configurar el entorno Thonny y ejecutar un primer programa de prueba para verificar el correcto funcionamiento del sistema.</p>
+<h5 id="competencias-desarrolladas">Competencias desarrolladas</h5>
+<ul>
+<li>Instalar y configurar el entorno de desarrollo MicroPython.</li>
+<li>Identificar y configurar el puerto de comunicación de la ESP32.</li>
+<li>Flashear firmware MicroPython sobre una plataforma ESP32.</li>
+<li>Configurar Thonny para el desarrollo de aplicaciones embebidas.</li>
+<li>Ejecutar un primer programa de prueba.</li>
+</ul>
+<h5 id="material-de-apoyo">Material de apoyo</h5>
+<p>📄 <a href="../pdf/Practica1_ESP32_MicroPython.pdf">Abrir o descargar la práctica en PDF</a></p>
+<p><iframe
+    src="../pdf/Practica1_ESP32_MicroPython.pdf"
+    width="100%"
+    height="800">
+</iframe>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Taller de MicroPython para Sistemas Embebidos e IoT<br>
+© 2026 Patricia Elizabeth Figueroa Millán (Tecnológico Nacional de México – Instituto Tecnológico de Colima) ·
+Ismael Amezcua Valdovinos (Universidad de Colima – Facultad de Telemática)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

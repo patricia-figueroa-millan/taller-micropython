@@ -1,0 +1,879 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Patricia Elizabeth Figueroa MIllán , Ismael Amezcua Valdovinos">
+      
+      
+        <link rel="canonical" href="https://micropython.elizabethfigueroa.com/tema5/tema5/">
+      
+      
+        <link rel="prev" href="../../tema4/tema4/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tema 5 - MicroPython para Sistemas Embebidos e IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#base-de-datos-en-supabase-para-proyectos-iot" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-header__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MicroPython para Sistemas Embebidos e IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema1/tema1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema2/tema2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema3/tema3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema4/tema4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 5
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-nav__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    MicroPython para Sistemas Embebidos e IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema1/tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema2/tema2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema3/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema4/tema4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="base-de-datos-en-supabase-para-proyectos-iot">Base de Datos en Supabase para Proyectos IoT</h1>
+<p>Hasta este punto del proyecto, las estaciones ambientales han sido capaces de medir variables físicas, visualizarlas localmente y transmitirlas mediante MQTT. Sin embargo, para construir aplicaciones IoT reales es necesario almacenar la información de manera permanente para posteriormente consultarla, analizarla, generar reportes o visualizar históricos.</p>
+<p>En esta práctica se utilizará <strong>Supabase</strong>, una plataforma Backend as a Service (BaaS) basada en PostgreSQL que proporciona una base de datos relacional, autenticación y una API REST automática para acceder a la información.</p>
+<p>Al finalizar la práctica se contará con una base de datos en la nube lista para recibir las mediciones provenientes de las estaciones ambientales.</p>
+<hr />
+<h1 id="objetivo">Objetivo</h1>
+<p>Crear un proyecto en Supabase y una tabla para almacenar las variables ambientales generadas por las estaciones IoT.</p>
+<hr />
+<h1 id="competencias-a-desarrollar">Competencias a desarrollar</h1>
+<ul>
+<li>Crear proyectos en Supabase.</li>
+<li>Diseñar una tabla para almacenar datos IoT.</li>
+<li>Preparar una base de datos para recibir información desde aplicaciones externas.</li>
+</ul>
+<hr />
+<h1 id="desarrollo">Desarrollo</h1>
+<h2 id="paso-1-crear-una-cuenta-en-supabase">Paso 1. Crear una cuenta en Supabase</h2>
+<ol>
+<li>Abrir el navegador.</li>
+<li>Entrar al sitio:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>https://supabase.com
+</code></pre></div>
+<ol>
+<li>Hacer clic en <strong>Start your project</strong>.</li>
+<li>Registrarse utilizando:</li>
+<li>GitHub, o</li>
+<li>una cuenta de correo electrónico.</li>
+<li>Confirmar el correo electrónico (si es necesario).</li>
+<li>Iniciar sesión.</li>
+</ol>
+<p>Después de iniciar sesión, Supabase mostrará la pantalla <strong>Your Organizations</strong>, donde se listan las organizaciones asociadas a la cuenta.</p>
+<p>Si es la primera vez que utiliza Supabase, 
+no aparece ninguna organización, haga clic en <strong>New organization</strong>, asigne un nombre y créela antes de continuar siguiendo las instrucciones de Supabase.</p>
+<p>Si no es la primera vez que utiliza Supabase probablemente solo aparecerá la organización que se haya creado en su momento. Si es así, seleccione su organización haciendo clic sobre ella.</p>
+<p>Una vez dentro de la organización, se mostrará el panel de proyectos desde donde será posible crear un nuevo proyecto.</p>
+<p>Al ingresar se mostrará el panel principal de Supabase.</p>
+<hr />
+<h2 id="paso-2-crear-un-nuevo-proyecto">Paso 2. Crear un nuevo proyecto</h2>
+<p>Seleccionar:</p>
+<div class="highlight"><pre><span></span><code>New Project
+</code></pre></div>
+<p>Completar la siguiente información:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor sugerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Organization</td>
+<td>La organización creada y seleccionada previamente.</td>
+</tr>
+<tr>
+<td>Project Name</td>
+<td><code>station_iot_X</code>, donde <strong>X</strong> corresponde al número asignado a la estación (por ejemplo: <code>station_iot_01</code>).</td>
+</tr>
+<tr>
+<td>Database Password</td>
+<td>Una contraseña segura que recuerde posteriormente (por ejemplo: <code>#So11fi26a17</code>).</td>
+</tr>
+<tr>
+<td>Region</td>
+<td><strong>Americas</strong> (o la región más cercana disponible).</td>
+</tr>
+<tr>
+<td>Pricing Plan</td>
+<td>Free</td>
+</tr>
+</tbody>
+</table>
+<p>En la sección <strong>Security</strong>, dejar habilitadas las siguientes opciones:</p>
+<ul>
+<li>☑ <strong>Enable Data API</strong></li>
+<li>☑ <strong>Automatically expose new tables</strong></li>
+<li>☑ <strong>Enable automatic RLS</strong></li>
+</ul>
+<h3 id="por-que-habilitar-estas-opciones">¿Por qué habilitar estas opciones?</h3>
+<p><strong>Enable Data API</strong></p>
+<p>Esta opción habilita automáticamente la API REST de Supabase para la base de datos. Gracias a ello, las aplicaciones externas podrán insertar, consultar, actualizar o eliminar información mediante solicitudes HTTP, sin necesidad de desarrollar una API propia.</p>
+<p><strong>Automatically expose new tables</strong></p>
+<p>Permite que las nuevas tablas creadas en el esquema <strong>public</strong> queden disponibles automáticamente a través de la Data API. Esto simplifica el desarrollo de la práctica, ya que las tablas podrán ser utilizadas inmediatamente por las aplicaciones que enviarán o consultarán información.</p>
+<blockquote>
+<p><strong>Nota:</strong> En proyectos de producción normalmente se recomienda administrar manualmente qué tablas estarán disponibles mediante la API para tener un mayor control sobre la seguridad.</p>
+</blockquote>
+<p><strong>Enable automatic RLS</strong></p>
+<p>RLS (<em>Row Level Security</em>) es un mecanismo de seguridad de PostgreSQL que controla qué registros puede consultar o modificar cada usuario.</p>
+<p>Al habilitar esta opción, todas las tablas nuevas creadas en el proyecto tendrán activada automáticamente esta capa de seguridad, siguiendo las buenas prácticas recomendadas por Supabase. Más adelante se configurarán las políticas necesarias para permitir el acceso a la información de forma controlada.</p>
+<p>Finalmente seleccionar:</p>
+<div class="highlight"><pre><span></span><code>Create New Project
+</code></pre></div>
+<p>Esperar algunos minutos mientras Supabase crea la base de datos. Le mostrará algo similar a la siguiente pantalla</p>
+<p><img alt="Prueba" src="../../assets/supabaseNP.png" style="display:block;margin:auto" width="600px" /></p>
+<hr />
+<h2 id="paso-3-crear-una-tabla">Paso 3. Crear una tabla</h2>
+<p>Una vez creado el proyecto, dirigirse al menu lateral izquierdo y seleccionar:</p>
+<div class="highlight"><pre><span></span><code>Table Editor
+</code></pre></div>
+<p>Le mostrará la opción de:</p>
+<div class="highlight"><pre><span></span><code>Create a new table
+</code></pre></div>
+<p>Configurar:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schema</td>
+<td>public</td>
+</tr>
+<tr>
+<td>Table Name</td>
+<td>lecturas_station_X</td>
+</tr>
+</tbody>
+</table>
+<p>Recuerde que la "X", es el numero de id de su estación.</p>
+<p>Dejar habilitada la opción:</p>
+<div class="highlight"><pre><span></span><code>Enable Row Level Security (RLS)
+</code></pre></div>
+<h3 id="enable-realtime">Enable Realtime</h3>
+<p>La opción <strong>Enable Realtime</strong> permite que Supabase envíe automáticamente a las aplicaciones los cambios realizados en una tabla (inserciones, modificaciones o eliminaciones) mediante conexiones WebSocket, sin necesidad de realizar consultas periódicas a la base de datos.</p>
+<p>Para el desarrollo de este proyecto <strong>no es necesario habilitar esta opción</strong>, ya que la base de datos se utilizará únicamente para almacenar las mediciones enviadas por las estaciones IoT. Posteriormente, la aplicación móvil consultará la información mediante la API REST de Supabase cuando sea necesario.</p>
+<p>Por lo tanto, se recomienda dejar esta opción desactivada.</p>
+<div class="highlight"><pre><span></span><code>☐ Enable Realtime
+</code></pre></div>
+<blockquote>
+<p><strong>Nota:</strong> La funcionalidad <strong>Realtime</strong> resulta útil cuando se desea que una aplicación reciba automáticamente las nuevas mediciones en el momento en que son almacenadas en la base de datos. Aunque esta característica no será utilizada en el presente taller, puede incorporarse en proyectos futuros que requieran monitoreo en tiempo real.</p>
+</blockquote>
+<hr />
+<h2 id="paso-4-agregar-las-columnas">Paso 4. Agregar las columnas</h2>
+<p>Crear los siguientes campos.</p>
+<table>
+<thead>
+<tr>
+<th>Columna</th>
+<th>Tipo de dato</th>
+<th>Configuración</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int8</td>
+<td>Primary Key + Identity</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>timestamptz</td>
+<td>Default: now()</td>
+</tr>
+<tr>
+<td>station_id[^1]</td>
+<td>text</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>temperatura</td>
+<td>float8</td>
+<td></td>
+</tr>
+<tr>
+<td>humedad</td>
+<td>float8</td>
+<td></td>
+</tr>
+<tr>
+<td>estado</td>
+<td>text</td>
+<td></td>
+</tr>
+<tr>
+<td>origen[^2]</td>
+<td>text</td>
+<td>Default: <code>'mqtt'</code></td>
+</tr>
+</tbody>
+</table>
+<p>La estructura de la tabla será similar a la siguiente:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>created_at</th>
+<th>station_id</th>
+<th>temperatura</th>
+<th>humedad</th>
+<th>estado</th>
+<th>origen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>[^1]: Después de crear la columna <strong><code>station_id</code></strong>, haga clic en <strong>Opciones adicionales (⚙️)</strong> y desmarque <strong>Is Nullable</strong>.</p>
+<p>[^2]: Para la columna <strong><code>origen</code></strong>, haga clic en el ícono de <strong>Opciones adicionales (⚙️)</strong> y desmarque la opción <strong>Is Nullable</strong>. Posteriormente, en el campo <strong>Default Value</strong>, escriba <strong><code>'mqtt'</code></strong>. De esta manera, todos los registros almacenarán automáticamente el valor <strong><code>mqtt</code></strong>, identificando que la información fue recibida a través del servicio MQTT.</p>
+<p>Deberá quedarle algo como se muestra en la pantalla siguiente:</p>
+<p><img alt="Prueba" src="../../assets/supabaseCT.png" style="display:block;margin:auto" width="600px" /></p>
+<blockquote>
+<p><strong>Nota:</strong> La tabla <strong><code>lecturas_ambientales</code></strong> está diseñada para almacenar únicamente el historial de mediciones generadas por las estaciones IoT. Por esta razón, solo se incluyen los datos necesarios para identificar la estación, registrar el momento de la medición y almacenar las variables ambientales junto con el estado calculado.</p>
+<p>Los parámetros de configuración de cada estación, como la temperatura máxima (<code>temp_max</code>), la humedad mínima (<code>hum_min</code>), la humedad máxima (<code>hum_max</code>) o el intervalo de lectura (<code>intervalo_lectura</code>), <strong>no se almacenan en esta tabla</strong>, ya que forman parte de la configuración local del nodo y no representan datos históricos.</p>
+<p>En aplicaciones IoT de mayor complejidad, estos parámetros podrían almacenarse en una tabla independiente de configuración, permitiendo modificarlos remotamente desde una aplicación. Sin embargo, para el desarrollo de este proyecto, dichos valores permanecerán configurados directamente en el programa de cada estación.</p>
+</blockquote>
+<p>Una vez configuradas todas las columnas y sus propiedades, haga clic en:</p>
+<div class="highlight"><pre><span></span><code>Save
+</code></pre></div>
+<p>Supabase creará la tabla <strong><code>lecturas_ambientales</code></strong> (o el nombre que haya definido para su estación) dentro de la base de datos PostgreSQL del proyecto.</p>
+<p>Al finalizar, la tabla aparecerá en el <strong>Table Editor</strong>, quedando lista para almacenar las mediciones generadas por la estación IoT, como se muestra a continuación:</p>
+<p><img alt="Prueba" src="../../assets/supabaseTOK.png" style="display:block;margin:auto" width="600px" /></p>
+<hr />
+<h2 id="paso-5-obtener-las-credenciales-del-proyecto">Paso 5. Obtener las credenciales del proyecto</h2>
+<p>Una vez creada la tabla, en el menú lateral seleccione:</p>
+<div class="highlight"><pre><span></span><code>Settings → API Keys
+</code></pre></div>
+<p>En esta sección se muestran las credenciales necesarias para acceder a la base de datos desde aplicaciones externas.</p>
+<h3 id="obtener-la-url-de-la-api">Obtener la URL de la API</h3>
+<p>En el menú lateral seleccione:</p>
+<div class="highlight"><pre><span></span><code>Settings → Data API
+</code></pre></div>
+<p>Copie la siguiente información:</p>
+<ul>
+<li><strong>API URL</strong></li>
+</ul>
+<p>Esta dirección corresponde al punto de acceso de la API REST de Supabase y será utilizada por el servicio desarrollado en MicroPython para insertar las mediciones en la base de datos.</p>
+<h2 id="nota-posteriormente-se-agregara-a-esta-direccion-el-nombre-de-la-tabla-para-construir-el-endpoint-completo-que-utilizara-el-servicio-en-python">&gt; <strong>Nota:</strong> Posteriormente se agregará a esta dirección el nombre de la tabla para construir el endpoint completo que utilizará el servicio en Python.</h2>
+<h1 id="resultado-esperado">Resultado esperado</h1>
+<p>Al finalizar la práctica se deberá contar con:</p>
+<ul>
+<li>Una cuenta en Supabase.</li>
+<li>Un proyecto creado.</li>
+<li>Una base de datos PostgreSQL.</li>
+<li>Una tabla para almacenar las mediciones ambientales.</li>
+<li>La API URL del proyecto identificada.</li>
+<li>La Secret key del proyecto identificada.</li>
+<li>Una base de datos lista para recibir automáticamente las mediciones generadas por las estaciones IoT.</li>
+</ul>
+<blockquote>
+<p><strong>Nota:</strong> En este proyecto no se insertarán datos directamente desde la ESP32 hacia Supabase. La estación IoT publicará sus mediciones mediante MQTT y una aplicación desarrollada en Streamlit actuará como cliente suscriptor.</p>
+<p>La aplicación Streamlit recibirá los mensajes publicados por las estaciones, los mostrará en un panel web y también los insertará en Supabase para generar el historial de mediciones.</p>
+<p>La arquitectura utilizada será:</p>
+<div class="highlight"><pre><span></span><code>ESP32 → MQTT → Streamlit → Supabase
+</code></pre></div>
+<p>De esta forma, la ESP32 se mantiene como un nodo IoT ligero, mientras que la aplicación Streamlit concentra la visualización de las mediciones y el almacenamiento histórico en la base de datos.</p>
+</blockquote>
+<hr />
+<h1 id="conclusiones">Conclusiones</h1>
+<p>En esta práctica se configuró una base de datos en la nube utilizando Supabase. Esta infraestructura permitirá almacenar de forma permanente las mediciones generadas por las estaciones ambientales y servirá como repositorio para el historial de datos del proyecto.</p>
+<p>En la siguiente práctica se desarrollará una aplicación en Streamlit que actuará como cliente suscriptor del broker MQTT. Esta aplicación recibirá las mediciones publicadas por las estaciones IoT, las mostrará en un panel web y las almacenará automáticamente en Supabase, integrando así el flujo completo de adquisición, visualización y almacenamiento de datos.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Taller de MicroPython para Sistemas Embebidos e IoT<br>
+© 2026 Patricia Elizabeth Figueroa Millán (Tecnológico Nacional de México – Instituto Tecnológico de Colima) ·
+Ismael Amezcua Valdovinos (Universidad de Colima – Facultad de Telemática)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

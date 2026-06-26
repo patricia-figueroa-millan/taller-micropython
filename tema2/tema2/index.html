@@ -1,0 +1,2122 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Patricia Elizabeth Figueroa MIllán , Ismael Amezcua Valdovinos">
+      
+      
+        <link rel="canonical" href="https://micropython.elizabethfigueroa.com/tema2/tema2/">
+      
+      
+        <link rel="prev" href="../../tema1/tema1/">
+      
+      
+        <link rel="next" href="../../tema3/tema3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tema 2 - MicroPython para Sistemas Embebidos e IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-2-manejo-de-entradas-y-salidas-digitales" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-header__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MicroPython para Sistemas Embebidos e IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema1/tema1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema3/tema3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema4/tema4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema5/tema5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 5
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-nav__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    MicroPython para Sistemas Embebidos e IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema1/tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-programacion-de-perifericos-en-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Programación de Periféricos en MicroPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Programación de Periféricos en MicroPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-del-hardware-al-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Del hardware al software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-bibliotecas-mas-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Bibliotecas más utilizadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-actividad-exploracion-de-un-gpio-desde-repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 Actividad: Exploración de un GPIO desde REPL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-exploracion-de-bibliotecas-y-objetos-desde-el-repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Exploración de Bibliotecas y Objetos desde el REPL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Exploración de Bibliotecas y Objetos desde el REPL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-exploracion-de-modulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 Exploración de módulos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-exploracion-de-clases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 Exploración de clases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-exploracion-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 Exploración de objetos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-recomendacion-para-explorar-bibliotecas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.4 Recomendación para explorar bibliotecas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-instalacion-y-verificacion-de-bibliotecas-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Instalación y Verificación de Bibliotecas Externas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Instalación y Verificación de Bibliotecas Externas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-bibliotecas-incluidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Bibliotecas incluidas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-bibliotecas-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 Bibliotecas externas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-obtencion-de-la-biblioteca-ssd1306" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 Obtención de la biblioteca SSD1306
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-instalacion-desde-thonny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.4 Instalación desde Thonny
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-integracion-de-dispositivos-mediante-i2c-oled-ssd1306" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Integración de Dispositivos mediante I2C: OLED SSD1306
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Integración de Dispositivos mediante I2C: OLED SSD1306">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-que-es-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.1 ¿Qué es I2C?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-arquitectura-de-comunicacion-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.2 Arquitectura de comunicación I2C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-conexion-de-la-oled-ssd1306" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.3 Conexión de la OLED SSD1306
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-conexion-de-la-pantalla-oled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.3 Conexión de la pantalla OLED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254-creacion-del-bus-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.4 Creación del bus I2C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#255-uso-de-softi2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.5 Uso de SoftI2C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#255-descubriendo-dispositivos-conectados-al-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.5 Descubriendo dispositivos conectados al bus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#257-direcciones-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.7 Direcciones I2C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#258-exploracion-del-objeto-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.8 Exploración del objeto I2C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#259-metodos-principales-del-objeto-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.9 Métodos principales del objeto I2C
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5.9 Métodos principales del objeto I2C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scan()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        writeto()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readfrom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readfrom()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writeto_mem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        writeto_mem()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readfrom_mem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        readfrom_mem()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-y-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start() y stop()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-normalmente-no-utilizamos-estos-metodos-directamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué normalmente no utilizamos estos métodos directamente?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2510-inicializacion-segura-de-la-pantalla-oled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.10 Inicialización segura de la pantalla OLED
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-integracion-de-sensores-digitales-dht22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Integración de Sensores Digitales: DHT22
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Integración de Sensores Digitales: DHT22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-importacion-de-bibliotecas-necesarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 Importación de bibliotecas necesarias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262-conexion-del-sensor-dht22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2 Conexión del sensor DHT22
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263-configuracion-del-sensor-dht22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.3 Configuración del sensor DHT22
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264-exploracion-del-objeto-sensor-desde-repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.4 Exploración del objeto sensor desde REPL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#265-obtencion-de-datos-del-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.5 Obtención de datos del sensor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#266-visualizacion-de-datos-y-estado-ambiental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.6 Visualización de datos y estado ambiental
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#267-bucle-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.7 Bucle principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#268-manejo-de-errores-del-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.8 Manejo de errores del sensor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#269-codigo-integrado-del-dht22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.9 Código integrado del DHT22
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema3/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema4/tema4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema5/tema5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-2-manejo-de-entradas-y-salidas-digitales">Tema 2. Manejo de Entradas y Salidas Digitales</h1>
+<h2 id="21-introduccion">2.1 Introducción</h2>
+<p>Los sistemas embebidos modernos interactúan continuamente con el entorno mediante dispositivos de entrada y salida. Las entradas permiten adquirir información proveniente de sensores, mientras que las salidas permiten comunicar información al usuario o controlar otros dispositivos.</p>
+<p>En plataformas como ESP32, MicroPython proporciona mecanismos sencillos para acceder a estos recursos de hardware, facilitando la integración de sensores, pantallas, actuadores y módulos de comunicación dentro de una misma aplicación.</p>
+<p>En el contexto de Internet de las Cosas (IoT), las entradas y salidas digitales constituyen el punto de enlace entre el mundo físico y el mundo digital, permitiendo capturar variables del entorno, procesarlas y generar respuestas locales o remotas.</p>
+<p>Como proyecto integrador del curso se desarrollará una Red Distribuida de Estaciones Ambientales IoT con MicroPython, conformada por múltiples nodos basados en ESP32 capaces de adquirir información ambiental, comunicarla mediante MQTT, almacenar los datos en la nube y permitir su monitoreo y configuración remota mediante una aplicación web.</p>
+<p>A lo largo del curso, la solución será construida de manera incremental. En este tema se desarrollará el primer nodo de la red, implementando una estación ambiental local capaz de medir temperatura y humedad mediante un sensor DHT22 y visualizar la información en una pantalla OLED SSD1306.</p>
+<p>Durante el desarrollo del tema, además de aprender a utilizar sensores y dispositivos de visualización, se introducirá una metodología práctica para explorar bibliotecas y objetos de MicroPython mediante el REPL, permitiendo que los participantes puedan descubrir y comprender nuevas funcionalidades de forma autónoma.</p>
+<h2 id="22-programacion-de-perifericos-en-micropython">2.2 Programación de Periféricos en MicroPython</h2>
+<p>Este tema tine por objetivo comprender cómo MicroPython abstrae el hardware mediante bibliotecas y objetos para facilitar el desarrollo de aplicaciones embebidas.</p>
+<h3 id="221-del-hardware-al-software">2.2.1 Del hardware al software</h3>
+<p>Cuando se desarrolla software embebido tradicionalmente se interactúa con registros y configuraciones de bajo nivel.</p>
+<p>MicroPython proporciona una capa de abstracción que permite representar sensores, pantallas y periféricos mediante objetos.</p>
+<p>Conceptualmente:</p>
+<p>Dispositivo físico → Biblioteca → Clase → Objeto → Métodos</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</code></pre></div>
+<p>El objeto <code>led</code> representa un GPIO físico y permite controlarlo mediante métodos como:</p>
+<div class="highlight"><pre><span></span><code><span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+<span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="222-bibliotecas-mas-utilizadas">2.2.2 Bibliotecas más utilizadas</h3>
+<ul>
+<li>machine</li>
+<li>time / utime</li>
+<li>network</li>
+<li>dht</li>
+<li>ssd1306</li>
+<li>umqtt.simple</li>
+<li>os</li>
+<li>socket</li>
+<li>framebuf</li>
+</ul>
+<h3 id="223-actividad-exploracion-de-un-gpio-desde-repl">2.2.3 Actividad: Exploración de un GPIO desde REPL</h3>
+<p>Explorar un GPIO desde el REPL:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+
+<span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+<span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h2 id="23-exploracion-de-bibliotecas-y-objetos-desde-el-repl">2.3 Exploración de Bibliotecas y Objetos desde el REPL</h2>
+<p>Este tema, busca que se aprenda a descubrir funcionalidades de bibliotecas y objetos mediante REPL.</p>
+<h3 id="231-exploracion-de-modulos">2.3.1 Exploración de módulos</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+
+<span class="nb">dir</span><span class="p">(</span><span class="n">machine</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="232-exploracion-de-clases">2.3.2 Exploración de clases</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">I2C</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">I2C</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="233-exploracion-de-objetos">2.3.3 Exploración de objetos</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="234-recomendacion-para-explorar-bibliotecas">2.3.4 Recomendación para explorar bibliotecas</h3>
+<p>Antes de utilizar una biblioteca, se sugiere realizar lo siguiente desde el REPL:</p>
+<ol>
+<li>Importar el módulo.</li>
+<li>Ejecutar dir().</li>
+<li>Crear un objeto.</li>
+<li>Ejecutar type().</li>
+<li>Ejecutar dir() sobre el objeto.</li>
+<li>Identificar métodos.</li>
+<li>Consultar documentación cuando sea necesario.</li>
+</ol>
+<h2 id="24-instalacion-y-verificacion-de-bibliotecas-externas">2.4 Instalación y Verificación de Bibliotecas Externas</h2>
+<h3 id="241-bibliotecas-incluidas">2.4.1 Bibliotecas incluidas</h3>
+<p>MicroPython incorpora bibliotecas como:</p>
+<div class="highlight"><pre><span></span><code><span class="n">machine</span>
+<span class="n">time</span>
+<span class="n">utime</span>
+<span class="n">network</span>
+<span class="n">os</span>
+<span class="n">dht</span>
+</code></pre></div>
+<h3 id="242-bibliotecas-externas">2.4.2 Bibliotecas externas</h3>
+<p>Algunas bibliotecas deben copiarse manualmente al ESP32.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code>ssd1306.py
+</code></pre></div>
+<h3 id="243-obtencion-de-la-biblioteca-ssd1306">2.4.3 Obtención de la biblioteca SSD1306</h3>
+<p>Repositorio oficial:</p>
+<p>https://github.com/micropython/micropython-esp32/</p>
+<p>Ruta:</p>
+<div class="highlight"><pre><span></span><code>drivers/display/ssd1306.py
+</code></pre></div>
+<p>Enlace directo:</p>
+<p>https://github.com/micropython/micropython-esp32/blob/esp32/drivers/display/ssd1306.py</p>
+<h3 id="244-instalacion-desde-thonny">2.4.4 Instalación desde Thonny</h3>
+<ol>
+<li>Abrir Thonny.</li>
+<li>Crear un archivo nuevo.</li>
+<li>Copiar el contenido de ssd1306.py.</li>
+<li>Guardar como:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>ssd1306.py
+</code></pre></div>
+<ol>
+<li>Guardar en la memoria del ESP32.</li>
+</ol>
+<h2 id="25-integracion-de-dispositivos-mediante-i2c-oled-ssd1306">2.5 Integración de Dispositivos mediante I2C: OLED SSD1306</h2>
+<h3 id="251-que-es-i2c">2.5.1 ¿Qué es I2C?</h3>
+<p>I2C (Inter-Integrated Circuit) es uno de los protocolos de comunicación más utilizados en sistemas embebidos para conectar sensores, memorias, pantallas y otros dispositivos periféricos.</p>
+<p>Su principal ventaja es que permite conectar múltiples dispositivos utilizando únicamente dos líneas de comunicación.</p>
+<div class="highlight"><pre><span></span><code>SDA → Datos
+SCL → Reloj
+</code></pre></div>
+<p>El ESP32 actúa como dispositivo maestro y coordina la comunicación con los dispositivos esclavos conectados al bus.</p>
+<h3 id="252-arquitectura-de-comunicacion-i2c">2.5.2 Arquitectura de comunicación I2C</h3>
+<div class="highlight"><pre><span></span><code>           ESP32
+      ┌────────────┐
+SDA ──┤ GPIO21     │
+SCL ──┤ GPIO22     │
+      └─────┬──────┘
+            │
+     ┌──────┴──────┐
+     │ OLED SSD1306│
+     └─────────────┘
+</code></pre></div>
+<h3 id="253-conexion-de-la-oled-ssd1306">2.5.3 Conexión de la OLED SSD1306</h3>
+<table>
+<thead>
+<tr>
+<th>OLED</th>
+<th>ESP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>SDA</td>
+<td>GPIO21</td>
+</tr>
+<tr>
+<td>SCL</td>
+<td>GPIO22</td>
+</tr>
+</tbody>
+</table>
+<h3 id="253-conexion-de-la-pantalla-oled">2.5.3 Conexión de la pantalla OLED</h3>
+<table>
+<thead>
+<tr>
+<th>OLED</th>
+<th>ESP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>SDA</td>
+<td>GPIO21</td>
+</tr>
+<tr>
+<td>SCL</td>
+<td>GPIO22</td>
+</tr>
+</tbody>
+</table>
+<h3 id="254-creacion-del-bus-i2c">2.5.4 Creación del bus I2C</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span>
+    <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span>
+    <span class="n">freq</span><span class="o">=</span><span class="mi">100000</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="255-uso-de-softi2c">2.5.5 Uso de SoftI2C</h3>
+<p>En caso de que se muestre un error de <mark>"I2C operation not supported"</mark>, es importante conocer que este generalmente indica una limitación a nivel de hardware con el microcontrolador, una interfaz 12c deshabilitada.</p>
+<p>Esta limitación puede ser resuelta cambiando a Software I2C en MicroPython, como se muestra a continuación:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SoftI2C</span>
+
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">SoftI2C</span><span class="p">(</span>
+    <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span>
+    <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span>
+    <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="255-descubriendo-dispositivos-conectados-al-bus">2.5.5 Descubriendo dispositivos conectados al bus</h3>
+<div class="highlight"><pre><span></span><code><span class="n">dispositivos</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dispositivos</span><span class="p">)</span>
+</code></pre></div>
+<p>Resultados esperados:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">60</span><span class="p">]</span>
+</code></pre></div>
+<p>o</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">61</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="257-direcciones-i2c">2.5.7 Direcciones I2C</h3>
+<table>
+<thead>
+<tr>
+<th>Decimal</th>
+<th>Hexadecimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>60</td>
+<td>0x3C</td>
+</tr>
+<tr>
+<td>61</td>
+<td>0x3D</td>
+</tr>
+</tbody>
+</table>
+<h3 id="258-exploracion-del-objeto-i2c">2.5.8 Exploración del objeto I2C</h3>
+<p>Una vez creado el bus I2C, es posible inspeccionarlo utilizando las herramientas de exploración de MicroPython vistas anteriormente.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">i2c</span><span class="p">)</span>
+</code></pre></div>
+Resultado esperado:</p>
+<p><div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">SoftI2C</span><span class="s1">&#39;&gt;</span>
+</code></pre></div>
+o
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">I2C</span><span class="s1">&#39;&gt;</span>
+</code></pre></div>
+dependiendo de la implementación utilizada.</p>
+<p>Posteriormente podemos consultar los métodos disponibles:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">dir</span><span class="p">(</span><span class="n">i2c</span><span class="p">)</span>
+</code></pre></div>
+<p>La salida puede variar ligeramente dependiendo de la versión de MicroPython, pero normalmente incluye métodos similares a los siguientes:</p>
+<p><div class="highlight"><pre><span></span><code>scan
+readfrom
+writeto
+readfrom_mem
+writeto_mem
+</code></pre></div>
+Estos métodos representan operaciones de comunicación de bajo nivel sobre el bus I2C.</p>
+<h3 id="259-metodos-principales-del-objeto-i2c">2.5.9 Métodos principales del objeto I2C</h3>
+<h4 id="scan">scan()</h4>
+<p>Permite detectar los dispositivos conectados al bus.
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+</code></pre></div>
+Retorna una lista con las direcciones de los dispositivos encontrados.</p>
+<p>Ejemplo:
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">60</span><span class="p">]</span>
+</code></pre></div>
+o
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">104</span><span class="p">]</span>
+</code></pre></div></p>
+<p>En este caso existirían dos dispositivos conectados al mismo bus.</p>
+<p>Este método constituye una de las herramientas más útiles para diagnóstico de conexiones en sistemas embebidos.</p>
+<h4 id="writeto">writeto()</h4>
+<p>Permite enviar datos directamente a un dispositivo I2C. 
+Sintaxis general:</p>
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">direccion</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span>
+</code></pre></div>
+<p>Ejemplo:
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span>
+    <span class="mh">0x3C</span><span class="p">,</span>
+    <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+En aplicaciones reales este método suele ser utilizado internamente por bibliotecas como ssd1306.py, por lo que normalmente el programador no necesita utilizarlo directamente.</p>
+<h4 id="readfrom">readfrom()</h4>
+<p>Permite leer datos desde un dispositivo I2C.</p>
+<p>Sintaxis:
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">readfrom</span><span class="p">(</span>
+    <span class="n">direccion</span><span class="p">,</span>
+    <span class="n">numero_bytes</span>
+<span class="p">)</span>
+</code></pre></div>
+Ejemplo:
+<div class="highlight"><pre><span></span><code><span class="n">datos</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom</span><span class="p">(</span>
+    <span class="mh">0x3C</span><span class="p">,</span>
+    <span class="mi">4</span>
+<span class="p">)</span>
+</code></pre></div>
+Retorna un objeto de tipo bytes.</p>
+<h4 id="writeto_mem">writeto_mem()</h4>
+<p>Muchos dispositivos I2C organizan su información en registros de memoria internos.</p>
+<p>Este método permite escribir directamente sobre dichos registros.</p>
+<p>Sintaxis:</p>
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span>
+    <span class="n">direccion</span><span class="p">,</span>
+    <span class="n">registro</span><span class="p">,</span>
+    <span class="n">datos</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Ejemplo conceptual:</p>
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span>
+    <span class="mh">0x68</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span>
+    <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x01</span><span class="s1">&#39;</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="readfrom_mem">readfrom_mem()</h4>
+<p>Permite leer información almacenada en registros específicos del dispositivo.</p>
+<p>Sintaxis:</p>
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_mem</span><span class="p">(</span>
+    <span class="n">direccion</span><span class="p">,</span>
+    <span class="n">registro</span><span class="p">,</span>
+    <span class="n">numero_bytes</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Ejemplo conceptual:</p>
+<div class="highlight"><pre><span></span><code><span class="n">valor</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_mem</span><span class="p">(</span>
+    <span class="mh">0x68</span><span class="p">,</span>
+    <span class="mh">0x00</span><span class="p">,</span>
+    <span class="mi">1</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Este mecanismo es ampliamente utilizado por sensores, relojes de tiempo real (RTC), memorias EEPROM y otros dispositivos I2C.</p>
+<h4 id="start-y-stop">start() y stop()</h4>
+<p>Algunas implementaciones de MicroPython exponen métodos para generar explícitamente las condiciones de inicio y finalización de una comunicación I2C.</p>
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<p>Sin embargo, en la mayoría de las aplicaciones estos métodos son gestionados automáticamente por las bibliotecas utilizadas.</p>
+<h4 id="por-que-normalmente-no-utilizamos-estos-metodos-directamente">¿Por qué normalmente no utilizamos estos métodos directamente?</h4>
+<p>En este taller se trabajará principalmente con bibliotecas de alto nivel como:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ssd1306</span>
+<span class="n">dht</span>
+<span class="n">umqtt</span><span class="o">.</span><span class="n">simple</span>
+</code></pre></div>
+<p>Estas bibliotecas encapsulan internamente las operaciones de comunicación necesarias.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>internamente ejecuta múltiples llamadas a métodos como:</p>
+<div class="highlight"><pre><span></span><code><span class="n">writeto</span><span class="p">()</span>
+</code></pre></div>
+<p>y</p>
+<div class="highlight"><pre><span></span><code><span class="n">writeto_mem</span><span class="p">()</span>
+</code></pre></div>
+<p>sin que el programador tenga que preocuparse por los detalles del protocolo.</p>
+<p>No obstante, conocer estos métodos permite comprender mejor cómo funcionan las bibliotecas y facilita el desarrollo de aplicaciones más avanzadas cuando se trabaja con dispositivos para los cuales no existe una biblioteca disponible.</p>
+<h3 id="2510-inicializacion-segura-de-la-pantalla-oled">2.5.10  Inicialización segura de la pantalla OLED</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SoftI2C</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ssd1306</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">SoftI2C</span><span class="p">(</span>
+    <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span>
+    <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span>
+    <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span>
+<span class="p">)</span>
+
+<span class="n">oled</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dispositivos</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dispositivos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: no se encontró ningún dispositivo I2C&quot;</span> <span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">60</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dispositivos</span> <span class="ow">and</span> <span class="mi">61</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dispositivos</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No se encontró una pantalla OLED en el bus I2C&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="n">i2c</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;OLED OK&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;I2C activo&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: fallo de comunicación con la OLED&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalle del error:&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error inesperado al inicializar la OLED&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalle del error:&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="26-integracion-de-sensores-digitales-dht22">2.6 Integración de Sensores Digitales: DHT22</h2>
+<h3 id="261-importacion-de-bibliotecas-necesarias">2.6.1 Importación de bibliotecas necesarias</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">dht</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
+</code></pre></div>
+<p>La biblioteca <code>dht</code> permite trabajar con sensores DHT11 y DHT22.</p>
+<p>La biblioteca <code>utime</code> permite controlar intervalos de espera entre mediciones.</p>
+<h3 id="262-conexion-del-sensor-dht22">2.6.2 Conexión del sensor DHT22</h3>
+<table>
+<thead>
+<tr>
+<th>DHT22</th>
+<th>ESP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>DATA</td>
+<td>GPIO4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="263-configuracion-del-sensor-dht22">2.6.3 Configuración del sensor DHT22</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="n">dht_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">DHT22</span><span class="p">(</span><span class="n">dht_pin</span><span class="p">)</span>
+</code></pre></div>
+<p>En este fragmento se configura el GPIO4 como pin de datos para el sensor DHT22.</p>
+<p>El objeto <code>sensor</code> representa al dispositivo físico dentro del programa. A partir de este objeto se podrán ejecutar métodos para solicitar mediciones y recuperar los valores de temperatura y humedad.</p>
+<h3 id="264-exploracion-del-objeto-sensor-desde-repl">2.6.4 Exploración del objeto sensor desde REPL</h3>
+<p>Antes de utilizar el sensor dentro de un programa completo, es recomendable explorarlo desde el REPL.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">sensor</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">dir</span><span class="p">(</span><span class="n">sensor</span><span class="p">)</span>
+</code></pre></div>
+<p>Los métodos principales son:</p>
+<div class="highlight"><pre><span></span><code>measure
+temperature
+humidity
+</code></pre></div>
+<p>Esta exploración permite conocer qué operaciones ofrece el objeto asociado al DHT22.</p>
+<h3 id="265-obtencion-de-datos-del-sensor">2.6.5 Obtención de datos del sensor</h3>
+<p>El proceso general para obtener datos del sensor DHT22, es el siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+
+<span class="n">temperatura</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>
+<span class="n">humedad</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span>
+</code></pre></div>
+<p>Sin embargo, se puede crear una función reutilizable para la obtención de datos del sensor, como se muestra a continuación:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">obtener_temperatura</span><span class="p">():</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>
+    <span class="n">hum</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span>
+</code></pre></div>
+<p>La función <code>obtener_temperatura()</code> encapsula el proceso de adquisición de datos.</p>
+<p>Primero se ejecuta:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+</code></pre></div>
+<p>Esta instrucción solicita una nueva medición al sensor.</p>
+<p>Después se recuperan los valores medidos:</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>
+<span class="n">hum</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span>
+</code></pre></div>
+<p>Finalmente, ambos valores se devuelven mediante:</p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span>
+</code></pre></div>
+<p>Esto permite que la función entregue dos datos al programa principal: temperatura y humedad.</p>
+<h3 id="266-visualizacion-de-datos-y-estado-ambiental">2.6.6 Visualización de datos y estado ambiental</h3>
+<p>De igual manera, el proceso general para vusializar los datos del sensor (estado ambiental) a través de la salida estándar (terminal) es el siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">())</span>
+</code></pre></div>
+<p>No obstante se puede crear una función específica para la visualización de los datos en la pantalla OLED conectada al I2C, como se muestra a continuación:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">mostrar_emoji</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Temp: </span><span class="si">{:.1f}</span><span class="s2">C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hum: </span><span class="si">{:.1f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hum</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">temp</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;FRIO [*]&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">15</span> <span class="ow">and</span> <span class="n">temp</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;NORMAL :)&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;CALOR [!]&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>La función <code>mostrar_emoji()</code> recibe como parámetros la temperatura y la humedad.</p>
+<p>Su propósito es actualizar la pantalla OLED con:</p>
+<ul>
+<li>Temperatura.</li>
+<li>Humedad.</li>
+<li>Estado ambiental según la temperatura.</li>
+</ul>
+<p>La instrucción:</p>
+<div class="highlight"><pre><span></span><code><span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>limpia la pantalla antes de escribir nuevos valores.</p>
+<p>La instrucción:</p>
+<div class="highlight"><pre><span></span><code><span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>actualiza físicamente la pantalla.</p>
+<p>Para evaluar del estado ambiental se puede  utilizar una estructura condicional para clasificar la temperatura:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">temp</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;FRIO [*]&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">15</span> <span class="ow">and</span> <span class="n">temp</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;NORMAL :)&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;CALOR [!]&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>Esta lógica permite que el sistema no solo muestre valores, sino que también interprete la información obtenida del sensor.</p>
+<h3 id="267-bucle-principal">2.6.7 Bucle principal</h3>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">temperatura</span><span class="p">,</span> <span class="n">humedad</span> <span class="o">=</span> <span class="n">obtener_temperatura</span><span class="p">()</span>
+        <span class="n">mostrar_emoji</span><span class="p">(</span><span class="n">temperatura</span><span class="p">,</span> <span class="n">humedad</span><span class="p">)</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Error Sensor!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>El bucle principal mantiene el sistema en ejecución continua. En cada ciclo:</p>
+<ol>
+<li>Obtiene temperatura y humedad.</li>
+<li>Actualiza la pantalla OLED.</li>
+<li>Espera 2 segundos.</li>
+<li>Repite el proceso.</li>
+</ol>
+<h3 id="268-manejo-de-errores-del-sensor">2.6.8 Manejo de errores del sensor</h3>
+<p>La lectura del DHT22 puede fallar ocasionalmente por problemas de comunicación, conexión o temporización.</p>
+<p>Por ello se utiliza:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+</code></pre></div>
+<p>para intentar ejecutar la lectura normalmente.</p>
+<p>Y:</p>
+<div class="highlight"><pre><span></span><code><span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</code></pre></div>
+<p>para capturar errores relacionados con el sensor.</p>
+<p>En caso de error, la pantalla muestra:</p>
+<div class="highlight"><pre><span></span><code>Error Sensor!
+</code></pre></div>
+<p>Esto evita que el programa se detenga completamente ante una lectura fallida.</p>
+<h3 id="269-codigo-integrado-del-dht22">2.6.9 Código integrado del DHT22</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">dht</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+
+<span class="c1"># Configuración del sensor DHT22</span>
+<span class="n">dht_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">DHT22</span><span class="p">(</span><span class="n">dht_pin</span><span class="p">)</span>
+
+<span class="c1"># Función para obtener datos del sensor DHT22</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">obtener_temperatura</span><span class="p">():</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>
+    <span class="n">hum</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span>
+
+<span class="c1"># Función para mostrar la temperatura, humedad y el estado</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mostrar_emoji</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Temp: </span><span class="si">{:.1f}</span><span class="s2">C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hum: </span><span class="si">{:.1f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hum</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">temp</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;FRIO [*]&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">15</span> <span class="ow">and</span> <span class="n">temp</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;NORMAL :)&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;CALOR [!]&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Bucle principal</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">temperatura</span><span class="p">,</span> <span class="n">humedad</span> <span class="o">=</span> <span class="n">obtener_temperatura</span><span class="p">()</span>
+        <span class="n">mostrar_emoji</span><span class="p">(</span><span class="n">temperatura</span><span class="p">,</span> <span class="n">humedad</span><span class="p">)</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Error Sensor!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<h1 id="27-estacion-ambiental-integrada-primer-incremento-del-proyecto">2.7 Estación Ambiental Integrada: Primer Incremento del Proyecto</h1>
+<h2 id="271-objetivo">2.7.1 Objetivo</h2>
+<p>Integrar la comunicación I2C, la pantalla OLED SSD1306 y el sensor DHT22 para construir el primer nodo funcional del proyecto integrador <strong>Red Distribuida de Estaciones Ambientales IoT con MicroPython</strong>.</p>
+<p>Además de medir y visualizar datos localmente, este incremento dejará preparada la estructura básica para que, en los siguientes temas, la estación pueda publicar información mediante MQTT y recibir parámetros de configuración remota.</p>
+<h2 id="272-integracion-de-componentes">2.7.2 Integración de componentes</h2>
+<p>Hasta este momento se han trabajado por separado los siguientes elementos:</p>
+<ul>
+<li>Comunicación I2C mediante <code>SoftI2C</code>.</li>
+<li>Inicialización segura de una pantalla OLED SSD1306.</li>
+<li>Lectura de temperatura y humedad mediante un sensor DHT22.</li>
+<li>Exploración de objetos y bibliotecas mediante REPL.</li>
+<li>Manejo básico de excepciones.</li>
+</ul>
+<p>En esta etapa (Practica 2) dichos componentes se integran en una única aplicación capaz de:</p>
+<ol>
+<li>Medir temperatura.</li>
+<li>Medir humedad.</li>
+<li>Evaluar el estado ambiental.</li>
+<li>Visualizar la información localmente.</li>
+<li>Preparar datos estructurados para futura publicación MQTT.</li>
+<li>Utilizar parámetros locales que posteriormente serán configurados de forma remota.</li>
+</ol>
+<h2 id="273-arquitectura-del-primer-incremento">2.7.3 Arquitectura del primer incremento</h2>
+<div class="highlight"><pre><span></span><code>        DHT22
+          │
+          ▼
+       ESP32
+          │
+          ▼
+    OLED SSD1306
+</code></pre></div>
+<p>Este sistema constituye el primer nodo funcional de la red distribuida. A continuación se indican las modificaciones necesarias para dejar el primer incremento del proyecto listo.</p>
+<h2 id="paso-1-agregar-identificacion-de-la-estacion">Paso 1. Agregar identificación de la estación</h2>
+<p>Cada nodo de la red debe tener un identificador único.
+Esto permitirá distinguir los datos publicados por cada estación cuando se integren varias tarjetas ESP32 mediante MQTT.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">station_id</span> <span class="o">=</span> <span class="s2">&quot;estacion_01&quot;</span>
+</code></pre></div>
+Más adelante este identificador podrá utilizarse para construir tópicos MQTT como:</p>
+<div class="highlight"><pre><span></span><code>estaciones/estacion_01/temperatura
+estaciones/estacion_01/humedad
+estaciones/estacion_01/estado
+</code></pre></div>
+<p>La información relativa a MQTT, funcionamiento y arquitectura se presentará en el Tema 3.</p>
+<h2 id="paso-2-agregar-parametros-locales-configurables">Paso 2. Agregar parámetros locales configurables</h2>
+<p>Se agregan variables que por ahora serán locales, pero que posteriormente podrán modificarse mediante mensajes MQTT.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">hum_min</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">hum_max</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">intervalo_lectura</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre></div>
+<p>Estas variables permiten definir:</p>
+<ul>
+<li>Temperatura máxima permitida.</li>
+<li>Humedad mínima permitida.</li>
+<li>Humedad máxima permitida.</li>
+<li>Tiempo de espera entre mediciones.</li>
+</ul>
+<p>En este primer incremento, los valores se escriben directamente en el código. En incrementos posteriores, estos valores podrán cambiarse de forma remota.</p>
+<h2 id="paso-3-mantener-la-inicializacion-segura-de-la-oled">Paso 3. Mantener la inicialización segura de la OLED</h2>
+<p>Se conserva la lógica de detección de dispositivos I2C antes de crear el objeto OLED.</p>
+<div class="highlight"><pre><span></span><code><span class="n">i2c</span> <span class="o">=</span> <span class="n">SoftI2C</span><span class="p">(</span>
+    <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span>
+    <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span>
+    <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span>
+<span class="p">)</span>
+
+<span class="n">oled</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dispositivos</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dispositivos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: no se encontró ningún dispositivo I2C&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">60</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dispositivos</span> <span class="ow">and</span> <span class="mi">61</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dispositivos</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No se encontró una pantalla OLED en dispositivos I2C&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;OLED OK&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;I2C activo&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: fallo de comunicación con la OLED&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalle del error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error inesperado al inicializar la OLED&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalle del error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="paso-4-verificar-que-la-oled-fue-inicializada">Paso 4: Verificar que la OLED fue inicializada</h2>
+<p>Posteriormente verificar que la pantalla OLED exista, agregando las lineas siguientes despues del código anterior del Paso 3 que ya se tiene.</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">oled</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No se puede continuar sin pantalla OLED.&quot;</span><span class="p">)</span>
+</code></pre></div>
+Esto evita que el programa intente ejecutar:
+<div class="highlight"><pre><span></span><code><span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+si la pantalla no fue inicializada correctamente.</p>
+<h2 id="paso-5-crear-una-funcion-para-evaluar-el-estado-ambiental">Paso 5. Crear una función para evaluar el estado ambiental</h2>
+<p>En lugar de colocar toda la lógica dentro de la función de visualización, se crea una función independiente. Esta función puede agregarse despues de la función obtener_temperatura().</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">evaluar_estado</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="n">temp_max</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;TEMP ALTA&quot;</span>
+    <span class="k">elif</span> <span class="n">hum</span> <span class="o">&lt;</span> <span class="n">hum_min</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;HUM BAJA&quot;</span>
+    <span class="k">elif</span> <span class="n">hum</span> <span class="o">&gt;</span> <span class="n">hum_max</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;HUM ALTA&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;NORMAL&quot;</span>
+</code></pre></div>
+<p>Esta separación es importante porque la evaluación del estado podrá reutilizarse después para:</p>
+<ul>
+<li>Mostrar información en pantalla.</li>
+<li>Publicar el estado mediante MQTT.</li>
+<li>Almacenar el estado en Supabase.</li>
+<li>Mostrar alertas en un dashboard.</li>
+</ul>
+<h2 id="paso-6-preparar-los-datos-para-futura-publicacion-mqtt">Paso 6. Preparar los datos para futura publicación MQTT</h2>
+<p>Aunque en este incremento todavía no se usa MQTT, se puede preparar una estructura de datos que será útil posteriormente.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">preparar_datos</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">,</span> <span class="n">estado</span><span class="p">):</span>
+    <span class="n">datos</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;station_id&quot;</span><span class="p">:</span> <span class="n">station_id</span><span class="p">,</span>
+        <span class="s2">&quot;temperatura&quot;</span><span class="p">:</span> <span class="n">temp</span><span class="p">,</span>
+        <span class="s2">&quot;humedad&quot;</span><span class="p">:</span> <span class="n">hum</span><span class="p">,</span>
+        <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="n">estado</span><span class="p">,</span>
+        <span class="s2">&quot;temp_max&quot;</span><span class="p">:</span> <span class="n">temp_max</span><span class="p">,</span>
+        <span class="s2">&quot;hum_min&quot;</span><span class="p">:</span> <span class="n">hum_min</span><span class="p">,</span>
+        <span class="s2">&quot;hum_max&quot;</span><span class="p">:</span> <span class="n">hum_max</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">datos</span>
+</code></pre></div>
+<p>Esta estructura permitirá visualizar desde ahora qué información podría publicarse más adelante.</p>
+<h2 id="paso-7-crear-una-funcion-para-mostrar-los-datos">Paso 7. Crear una función para mostrar los datos</h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">mostrar_datos</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">,</span> <span class="n">estado</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">station_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;T:</span><span class="si">{:.1f}</span><span class="s2">C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;H:</span><span class="si">{:.1f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hum</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">estado</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="paso-8-integrar-el-bucle-principal">Paso 8. Integrar el bucle principal</h2>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">temperatura</span><span class="p">,</span> <span class="n">humedad</span> <span class="o">=</span> <span class="n">obtener_temperatura</span><span class="p">()</span>
+
+        <span class="n">estado</span> <span class="o">=</span> <span class="n">evaluar_estado</span><span class="p">(</span>
+            <span class="n">temperatura</span><span class="p">,</span>
+            <span class="n">humedad</span>
+        <span class="p">)</span>
+
+        <span class="n">datos</span> <span class="o">=</span> <span class="n">preparar_datos</span><span class="p">(</span>
+            <span class="n">temperatura</span><span class="p">,</span>
+            <span class="n">humedad</span><span class="p">,</span>
+            <span class="n">estado</span>
+        <span class="p">)</span>
+
+        <span class="n">mostrar_datos</span><span class="p">(</span>
+            <span class="n">temperatura</span><span class="p">,</span>
+            <span class="n">humedad</span><span class="p">,</span>
+            <span class="n">estado</span>
+        <span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">intervalo_lectura</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Error Sensor!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al leer DHT22:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">intervalo_lectura</span><span class="p">)</span>
+</code></pre></div>
+<p>En este ciclo:</p>
+<ol>
+<li>Se leen los datos del DHT22.</li>
+<li>Se evalúa el estado ambiental.</li>
+<li>Se preparan los datos en una estructura similar a la que se usará con MQTT.</li>
+<li>Se actualiza la OLED.</li>
+<li>Se imprimen los datos en consola.</li>
+<li>Se espera el intervalo de lectura configurado.</li>
+</ol>
+<h2 id="codigo-integrado-de-la-practica-2-modificado">Código integrado de la Práctica 2 modificado</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">SoftI2C</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ssd1306</span><span class="w"> </span><span class="kn">import</span> <span class="n">SSD1306_I2C</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dht</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
+
+<span class="c1"># Identificación de la estación</span>
+<span class="n">station_id</span> <span class="o">=</span> <span class="s2">&quot;estacion_01&quot;</span>
+
+<span class="c1"># Parámetros locales configurables</span>
+<span class="n">temp_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">hum_min</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">hum_max</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">intervalo_lectura</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Configuración del sensor DHT22</span>
+<span class="n">dht_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">DHT22</span><span class="p">(</span><span class="n">dht_pin</span><span class="p">)</span>
+
+<span class="c1"># Configuración del bus I2C</span>
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">SoftI2C</span><span class="p">(</span>
+    <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span>
+    <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span>
+    <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span>
+<span class="p">)</span>
+
+<span class="n">oled</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dispositivos</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dispositivos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: no se encontró ningún dispositivo I2C&quot;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="mi">60</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dispositivos</span> <span class="ow">and</span> <span class="mi">61</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dispositivos</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No se encontró una pantalla OLED en dispositivos I2C&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oled</span> <span class="o">=</span> <span class="n">SSD1306_I2C</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">i2c</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;OLED OK&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;I2C activo&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: fallo de comunicación con la OLED&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalle del error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error inesperado al inicializar la OLED&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalle del error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">oled</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No se puede continuar sin pantalla OLED.&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obtener_temperatura</span><span class="p">():</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>
+    <span class="n">hum</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluar_estado</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="n">temp_max</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;TEMP ALTA&quot;</span>
+    <span class="k">elif</span> <span class="n">hum</span> <span class="o">&lt;</span> <span class="n">hum_min</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;HUM BAJA&quot;</span>
+    <span class="k">elif</span> <span class="n">hum</span> <span class="o">&gt;</span> <span class="n">hum_max</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;HUM ALTA&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;NORMAL&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">preparar_datos</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">,</span> <span class="n">estado</span><span class="p">):</span>
+    <span class="n">datos</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;station_id&quot;</span><span class="p">:</span> <span class="n">station_id</span><span class="p">,</span>
+        <span class="s2">&quot;temperatura&quot;</span><span class="p">:</span> <span class="n">temp</span><span class="p">,</span>
+        <span class="s2">&quot;humedad&quot;</span><span class="p">:</span> <span class="n">hum</span><span class="p">,</span>
+        <span class="s2">&quot;estado&quot;</span><span class="p">:</span> <span class="n">estado</span><span class="p">,</span>
+        <span class="s2">&quot;temp_max&quot;</span><span class="p">:</span> <span class="n">temp_max</span><span class="p">,</span>
+        <span class="s2">&quot;hum_min&quot;</span><span class="p">:</span> <span class="n">hum_min</span><span class="p">,</span>
+        <span class="s2">&quot;hum_max&quot;</span><span class="p">:</span> <span class="n">hum_max</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">datos</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mostrar_datos</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">,</span> <span class="n">estado</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">station_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;T:</span><span class="si">{:.1f}</span><span class="s2">C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;H:</span><span class="si">{:.1f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hum</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">estado</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">temperatura</span><span class="p">,</span> <span class="n">humedad</span> <span class="o">=</span> <span class="n">obtener_temperatura</span><span class="p">()</span>
+
+        <span class="n">estado</span> <span class="o">=</span> <span class="n">evaluar_estado</span><span class="p">(</span>
+            <span class="n">temperatura</span><span class="p">,</span>
+            <span class="n">humedad</span>
+        <span class="p">)</span>
+
+        <span class="n">datos</span> <span class="o">=</span> <span class="n">preparar_datos</span><span class="p">(</span>
+            <span class="n">temperatura</span><span class="p">,</span>
+            <span class="n">humedad</span><span class="p">,</span>
+            <span class="n">estado</span>
+        <span class="p">)</span>
+
+        <span class="n">mostrar_datos</span><span class="p">(</span>
+            <span class="n">temperatura</span><span class="p">,</span>
+            <span class="n">humedad</span><span class="p">,</span>
+            <span class="n">estado</span>
+        <span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">intervalo_lectura</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Error Sensor!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al leer DHT22:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">intervalo_lectura</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="resultado-obtenido">Resultado obtenido</h2>
+<p>Al ejecutar la aplicación, la estación ambiental es capaz de:</p>
+<ul>
+<li>Adquirir temperatura y humedad del entorno.</li>
+<li>Evaluar el estado ambiental con base en umbrales locales.</li>
+<li>Mostrar la información en una pantalla OLED.</li>
+<li>Preparar una estructura de datos lista para futura publicación MQTT.</li>
+<li>Identificarse como una estación específica mediante station_id.</li>
+<li>Operar de forma autónoma como nodo ambiental local.</li>
+</ul>
+<h2 id="relacion-con-el-proyecto-integrador">Relación con el Proyecto Integrador</h2>
+<p>La estación ambiental desarrollada en este tema corresponde al primer incremento funcional del proyecto:</p>
+<p>Día 2: Nodo Ambiental Local con parámetros locales ✓</p>
+<p>En los siguientes temas se incorporarán nuevas capacidades:</p>
+<div class="highlight"><pre><span></span><code>Día<span class="w"> </span><span class="m">3</span>
+WiFi<span class="w"> </span>+<span class="w"> </span>MQTT
+Publicación<span class="w"> </span>de<span class="w"> </span>datos
+<span class="w">        </span>↓
+
+Día<span class="w"> </span><span class="m">4</span>
+Configuración<span class="w"> </span>remota
+de<span class="w"> </span>umbrales
+<span class="w">        </span>↓
+
+Día<span class="w"> </span><span class="m">5</span>
+Supabase<span class="w"> </span>+
+Dashboard<span class="w"> </span>Web
+<span class="w">        </span>↓
+
+Red<span class="w"> </span>Distribuida<span class="w"> </span>de
+Estaciones<span class="w"> </span>Ambientales<span class="w"> </span>IoT
+</code></pre></div>
+<h2 id="reflexion">Reflexión</h2>
+<p>Aunque actualmente el sistema funciona de manera local, el código ya está organizado para evolucionar hacia una arquitectura IoT distribuida.</p>
+<p>La incorporación de:</p>
+<ul>
+<li>station_id</li>
+<li>temp_max</li>
+<li>hum_min</li>
+<li>hum_max</li>
+<li>intervalo_lectura</li>
+<li>preparar_datos()</li>
+</ul>
+<p>permite que el nodo esté listo para integrarse posteriormente con MQTT.</p>
+<p>En el siguiente incremento, los valores generados por preparar_datos() podrán publicarse hacia un broker MQTT, y los parámetros locales podrán actualizarse de forma remota mediante mensajes de configuración.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Taller de MicroPython para Sistemas Embebidos e IoT<br>
+© 2026 Patricia Elizabeth Figueroa Millán (Tecnológico Nacional de México – Instituto Tecnológico de Colima) ·
+Ismael Amezcua Valdovinos (Universidad de Colima – Facultad de Telemática)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

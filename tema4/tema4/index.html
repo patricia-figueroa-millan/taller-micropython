@@ -1,0 +1,1864 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Patricia Elizabeth Figueroa MIllán , Ismael Amezcua Valdovinos">
+      
+      
+        <link rel="canonical" href="https://micropython.elizabethfigueroa.com/tema4/tema4/">
+      
+      
+        <link rel="prev" href="../../tema3/tema3/">
+      
+      
+        <link rel="next" href="../../tema5/tema5/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tema 4 - MicroPython para Sistemas Embebidos e IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-4-configuracion-remota-mediante-mqtt" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-header__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MicroPython para Sistemas Embebidos e IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema1/tema1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema2/tema2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema3/tema3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema5/tema5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 5
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MicroPython para Sistemas Embebidos e IoT" class="md-nav__button md-logo" aria-label="MicroPython para Sistemas Embebidos e IoT" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    MicroPython para Sistemas Embebidos e IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema1/tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema2/tema2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema3/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-del-monitoreo-remoto-al-control-remoto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Del monitoreo remoto al control remoto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-publicacion-y-suscripcion-en-mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Publicación y suscripción en MQTT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-topicos-de-configuracion-remota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Tópicos de configuración remota
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-topicos-de-configuracion-remota_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Tópicos de configuración remota
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-funcion-callback-en-mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Función callback en MQTT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-recepcion-de-mensajes-desde-el-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Recepción de mensajes desde el broker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 Recepción de mensajes desde el broker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registrar-la-funcion-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registrar la función callback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suscribirse-al-topico-de-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suscribirse al tópico de configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificar-la-llegada-de-nuevos-mensajes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificar la llegada de nuevos mensajes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-modificacion-remota-de-parametros-locales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Modificación remota de parámetros locales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-validacion-de-comandos-recibidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Validación de comandos recibidos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-codigo-integrado-wifi-mqtt-oled-configuracion-remota-mediante-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 Código integrado WiFi + MQTT + OLED + configuración remota mediante JSON
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.9 Código integrado WiFi + MQTT + OLED + configuración remota mediante JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion-del-topico-de-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definición del tópico de configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Función callback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suscripcion-al-topico-de-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suscripción al tópico de configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-integrado-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código integrado final
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reto-propuesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reto propuesto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410-prueba-desde-cliente-mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 Prueba desde cliente MQTT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.10 Prueba desde cliente MQTT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cliente-web-mqtt-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cliente web MQTT recomendado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-la-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de la conexión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoreo-de-los-datos-publicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoreo de los datos publicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envio-de-una-configuracion-remota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Envío de una configuración remota
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado esperado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#411-resultado-esperado-del-incremento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 Resultado esperado del incremento
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema5/tema5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-4-configuracion-remota-mediante-mqtt">Tema 4. Configuración remota mediante MQTT</h1>
+<h2 id="41-introduccion">4.1 Introducción</h2>
+<p>En el tema anterior se incorporó la conectividad WiFi y la comunicación MQTT a la estación ambiental basada en ESP32. Con ello, el nodo dejó de funcionar únicamente como una estación local y comenzó a publicar datos de temperatura, humedad y estado ambiental hacia un broker MQTT, permitiendo su monitoreo remoto en tiempo real.</p>
+<p>Sin embargo, en muchos sistemas IoT no basta con enviar información desde el dispositivo hacia una aplicación externa. También es necesario que el dispositivo pueda recibir instrucciones, parámetros o comandos desde la red para modificar su comportamiento sin necesidad de reprogramarlo físicamente.</p>
+<p>En este tema se ampliará la funcionalidad de la estación ambiental para que, además de publicar datos, pueda suscribirse a tópicos MQTT y recibir mensajes de configuración remota. Esto permitirá modificar parámetros como la temperatura máxima permitida, los límites de humedad y el intervalo de lectura desde un cliente MQTT externo.</p>
+<p>De esta manera, la estación evolucionará de un nodo de monitoreo hacia un nodo IoT configurable, capaz de ajustar su operación en tiempo real a partir de instrucciones recibidas mediante MQTT.</p>
+<p>Como parte del proyecto integrador <strong>Red Distribuida de Estaciones Ambientales IoT con MicroPython</strong>, este tema corresponde al tercer incremento funcional de la solución. En esta etapa se incorporará la comunicación entre la estación ambiental y el broker MQTT, sentando las bases para procesos de supervisión, control remoto y administración de múltiples estaciones.</p>
+<p>La arquitectura general que se implementará durante este tema se muestra conceptualmente a continuación:</p>
+<div class="highlight"><pre><span></span><code>        Cliente MQTT
+             │
+             ▼
+        Broker MQTT
+             │
+             ▼
+           ESP32
+             │
+     ┌───────┴────────┐
+     ▼                ▼
+  DHT22             OLED
+</code></pre></div>
+<p>Durante el desarrollo del tema se abordarán los conceptos de suscripción MQTT, recepción de mensajes, funciones <em>callback</em>, tópicos de configuración y validación básica de comandos. Asimismo, se continuará utilizando la estación ambiental desarrollada previamente, integrando nuevas funciones de manera incremental.</p>
+<p>Al finalizar el tema, la estación ambiental será capaz de medir temperatura y humedad, visualizar la información localmente, publicar datos hacia el broker MQTT y recibir parámetros remotos para modificar su comportamiento durante la ejecución.</p>
+<h2 id="42-del-monitoreo-remoto-al-control-remoto">4.2 Del monitoreo remoto al control remoto</h2>
+<p>En el Tema 3, la estación ambiental adquirió la capacidad de enviar información hacia un broker MQTT, permitiendo que otros dispositivos o aplicaciones pudieran monitorear en tiempo real las variables ambientales medidas por el sensor DHT22. En esta etapa, la comunicación se realizó únicamente en un sentido: desde la estación hacia el broker.</p>
+<p>Este modelo de comunicación resulta adecuado para aplicaciones donde únicamente se requiere observar el comportamiento de un proceso. Sin embargo, en muchos sistemas IoT reales también es necesario enviar instrucciones desde una aplicación remota hacia los dispositivos desplegados en campo.</p>
+<p>Esta capacidad transforma un sistema de monitoreo en un sistema de supervisión y control, permitiendo modificar parámetros de operación, cambiar configuraciones o ejecutar acciones sin necesidad de acceder físicamente al dispositivo.</p>
+<p>En el proyecto integrador, la estación ambiental mantendrá la publicación periódica de temperatura, humedad y estado ambiental, pero además comenzará a escuchar determinados tópicos MQTT para recibir nuevas configuraciones enviadas por un cliente remoto.</p>
+<p>La comunicación pasará de ser unidireccional a bidireccional.</p>
+<div class="highlight"><pre><span></span><code>                 Tema 3
+        Monitoreo remoto
+
+        Publicación MQTT
+
+ESP32 ----------------------► Broker
+                               │
+                               ▼
+                        Cliente MQTT
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                 Tema 4
+      Monitoreo + Control remoto
+
+             Publicación
+ESP32 ----------------------► Broker
+  ▲                            │
+  │                            ▼
+  └──────── Configuración ◄──── Cliente MQTT
+</code></pre></div>
+<p>Gracias a esta nueva capacidad será posible modificar, por ejemplo:</p>
+<ul>
+<li>La temperatura máxima permitida (<code>temp_max</code>).</li>
+<li>El límite inferior de humedad (<code>hum_min</code>).</li>
+<li>El límite superior de humedad (<code>hum_max</code>).</li>
+<li>El intervalo entre lecturas (<code>intervalo_lectura</code>).</li>
+</ul>
+<p>Estos cambios se aplicarán mientras el programa se encuentra en ejecución, sin necesidad de detener la estación ni volver a cargar el código en la ESP32.</p>
+<p>Este mecanismo constituye una de las principales ventajas de los sistemas IoT modernos, ya que permite administrar dispositivos distribuidos desde una ubicación central, facilitando las tareas de supervisión, mantenimiento y ajuste de parámetros de operación.</p>
+<p>En las siguientes secciones se estudiará cómo MQTT implementa esta comunicación bidireccional mediante operaciones de suscripción, funciones <em>callback</em> y recepción de mensajes publicados en tópicos específicos de configuración.</p>
+<h2 id="43-publicacion-y-suscripcion-en-mqtt">4.3 Publicación y suscripción en MQTT</h2>
+<p>En el Tema 3 se estudió que MQTT utiliza un modelo de comunicación basado en <strong>publicación</strong> (<em>publish</em>) y <strong>suscripción</strong> (<em>subscribe</em>). Gracias a este modelo, los dispositivos intercambian información a través de un broker MQTT sin necesidad de comunicarse directamente entre sí.</p>
+<p>Hasta este momento, la estación ambiental únicamente ha actuado como <strong>publicador</strong>, enviando periódicamente los valores de temperatura, humedad y estado ambiental hacia los tópicos definidos para cada variable.</p>
+<div class="highlight"><pre><span></span><code>ESP32
+(Publisher)
+     │
+     │ Publica datos
+     ▼
+Broker MQTT
+     │
+     ▼
+Clientes MQTT
+(Subscribers)
+</code></pre></div>
+<p>Sin embargo, MQTT también permite que un mismo dispositivo desempeñe simultáneamente el papel de <strong>publicador</strong> y <strong>suscriptor</strong>.</p>
+<p>En este caso, la estación ambiental continuará publicando sus mediciones, pero además se suscribirá a un <strong>único tópico de configuración</strong>, donde esperará recibir mensajes en formato JSON enviados desde un cliente MQTT.</p>
+<p>La arquitectura de comunicación será la siguiente:</p>
+<div class="highlight"><pre><span></span><code>                   Publicación
+ESP32 --------------------------------► Broker MQTT
+  ▲                                       │
+  │                                       ▼
+  └──────────── Suscripción ◄──────── Cliente MQTT
+</code></pre></div>
+<p>De esta forma, el ESP32 mantendrá una comunicación bidireccional con el broker.</p>
+<p>Mientras publica información ambiental, permanecerá escuchando continuamente el tópico de configuración para detectar si algún cliente ha enviado una nueva configuración de operación.</p>
+<p>Conceptualmente, el flujo de trabajo será el siguiente:</p>
+<ol>
+<li>La estación mide temperatura y humedad.</li>
+<li>Publica los datos mediante MQTT.</li>
+<li>El broker distribuye la información a los clientes suscritos.</li>
+<li>Un cliente MQTT envía un mensaje JSON con la nueva configuración.</li>
+<li>El broker entrega dicho mensaje al ESP32.</li>
+<li>La estación actualiza únicamente los parámetros incluidos en el mensaje y continúa operando con los nuevos valores.</li>
+</ol>
+<p>Este comportamiento puede representarse de la siguiente manera:</p>
+<div class="highlight"><pre><span></span><code>                Temperatura
+ESP32 ------------------------------► Broker
+                                      │
+                                      ▼
+                               Cliente MQTT
+
+Cliente MQTT ------------------------► Broker
+        JSON de configuración          │
+                                       ▼
+                                     ESP32
+</code></pre></div>
+<p>Una de las principales ventajas de este modelo es que el publicador y el suscriptor permanecen desacoplados. El cliente que envía la configuración no necesita conocer la dirección IP del ESP32 ni establecer una conexión directa con él; únicamente debe publicar el mensaje JSON en el tópico de configuración correspondiente. Del mismo modo, la estación ambiental sólo necesita permanecer suscrita a dicho tópico para recibir automáticamente cualquier actualización enviada por el broker.</p>
+<p>Esta arquitectura facilita el desarrollo de sistemas IoT escalables, ya que un mismo broker puede administrar simultáneamente la comunicación entre decenas o incluso cientos de dispositivos distribuidos.</p>
+<h2 id="44-topicos-de-configuracion-remota">4.4 Tópicos de configuración remota</h2>
+<h2 id="44-topicos-de-configuracion-remota_1">4.4 Tópicos de configuración remota</h2>
+<p>En el Tema 3 se definieron los tópicos utilizados para publicar las variables ambientales de la estación, como la temperatura, la humedad y el estado del sistema.</p>
+<p>Para implementar la configuración remota podría definirse un tópico independiente para cada parámetro de operación. Sin embargo, en este proyecto se utilizará una estrategia diferente: un <strong>único tópico de configuración</strong> que recibirá mensajes en formato JSON.</p>
+<p>Esta aproximación reduce el número de suscripciones necesarias y permite modificar uno o varios parámetros mediante un solo mensaje.</p>
+<p>La estructura general de los tópicos queda de la siguiente manera:</p>
+<div class="highlight"><pre><span></span><code>estaciones
+└── estacion_01_xxxxxxxxxxxx
+    ├── temperatura
+    ├── humedad
+    ├── estado
+    └── config
+</code></pre></div>
+<p>donde <code>estacion_01_xxxxxxxxxxxx</code> corresponde al identificador único almacenado en la variable <code>MQTT_CLIENT_ID</code>.</p>
+<p>Los tópicos utilizados por la estación serán:</p>
+<table>
+<thead>
+<tr>
+<th>Información</th>
+<th>Tópico MQTT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temperatura</td>
+<td><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/temperatura</code></td>
+</tr>
+<tr>
+<td>Humedad</td>
+<td><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/humedad</code></td>
+</tr>
+<tr>
+<td>Estado ambiental</td>
+<td><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/estado</code></td>
+</tr>
+<tr>
+<td>Configuración remota</td>
+<td><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/config</code></td>
+</tr>
+</tbody>
+</table>
+<p>En MicroPython, estos tópicos se definen de la siguiente manera:</p>
+<div class="highlight"><pre><span></span><code><span class="n">topic_temp</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/temperatura&quot;</span>
+<span class="n">topic_hum</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/humedad&quot;</span>
+<span class="n">topic_estado</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/estado&quot;</span>
+
+<span class="n">topic_config</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/config&quot;</span>
+</code></pre></div>
+<p>Gracias al uso de <code>MQTT_CLIENT_ID</code>, cada estación genera automáticamente un conjunto de tópicos únicos, evitando interferencias cuando varias estaciones utilizan simultáneamente el mismo broker MQTT.</p>
+<p>La configuración remota ya no se envía como un valor aislado asociado a un tópico específico. En su lugar, el cliente MQTT publica un mensaje JSON sobre el tópico de configuración.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;intervalo_lectura&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Este mensaje puede contener uno o varios parámetros. La estación únicamente actualizará aquellos que estén presentes dentro de la sección <code>config</code>, manteniendo sin cambios el resto de la configuración.</p>
+<p>Posteriormente, el ESP32 se suscribirá únicamente al tópico <code>config</code>, permaneciendo a la espera de nuevos mensajes enviados desde cualquier cliente MQTT autorizado.</p>
+<p>El uso de un único tópico de configuración constituye una estrategia ampliamente utilizada en aplicaciones IoT, ya que simplifica el protocolo de comunicación, facilita su mantenimiento y permite extender el sistema incorporando nuevas opciones de configuración sin necesidad de crear tópicos adicionales.</p>
+<h2 id="45-funcion-callback-en-mqtt">4.5 Función callback en MQTT</h2>
+<p>Hasta este momento, la estación ambiental ha enviado información mediante el método <code>publish()</code>. Sin embargo, para que el ESP32 pueda recibir mensajes desde el broker MQTT es necesario definir un mecanismo que procese automáticamente cada mensaje recibido.</p>
+<p>En MQTT, este mecanismo se implementa mediante una <strong>función callback</strong>.</p>
+<p>Una función <em>callback</em> es una función que no se ejecuta directamente desde el programa principal, sino que es invocada automáticamente por otra función o biblioteca cuando ocurre un determinado evento.</p>
+<p>En el caso de MQTT, el evento corresponde a la recepción de un mensaje en alguno de los tópicos a los que el cliente se encuentra suscrito.</p>
+<p>El flujo general de funcionamiento puede representarse de la siguiente manera:</p>
+<div class="highlight"><pre><span></span><code>Cliente MQTT
+      │
+      │ Publica mensaje
+      ▼
+Broker MQTT
+      │
+      │ Entrega mensaje
+      ▼
+ESP32
+      │
+      ▼
+Función callback
+      │
+      ▼
+Procesa el mensaje
+</code></pre></div>
+<p>La biblioteca <code>umqtt.simple</code> permite registrar una función callback mediante el método:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cliente</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">mi_callback</span><span class="p">)</span>
+</code></pre></div>
+<p>donde <code>mi_callback</code> es el nombre de la función que será ejecutada automáticamente cuando llegue un nuevo mensaje.</p>
+<p>Una estructura básica de una función callback es la siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topico:&quot;</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensaje:&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+<p>Esta función recibe dos argumentos:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>topic</code></td>
+<td>Tópico MQTT en el que se recibió el mensaje.</td>
+</tr>
+<tr>
+<td><code>msg</code></td>
+<td>Contenido del mensaje recibido.</td>
+</tr>
+</tbody>
+</table>
+<p>Es importante considerar que tanto el tópico como el mensaje son recibidos en formato <strong>bytes</strong>, por lo que normalmente es necesario convertirlos antes de procesarlos.</p>
+<p>El tópico se convierte a una cadena de texto mediante:</p>
+<div class="highlight"><pre><span></span><code><span class="n">topic</span> <span class="o">=</span> <span class="n">topic</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</code></pre></div>
+<p>Mientras que el contenido del mensaje se mantiene en formato <code>bytes</code>, ya que será procesado directamente por la biblioteca <code>ujson</code>.</p>
+<p>Por ejemplo, si un cliente MQTT publica el siguiente mensaje:</p>
+<p><strong>Tópico</strong></p>
+<div class="highlight"><pre><span></span><code>estaciones/estacion_01_xxxxxxxxxxxx/config
+</code></pre></div>
+<p><strong>Mensaje</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>La función callback recibirá internamente:</p>
+<div class="highlight"><pre><span></span><code><span class="n">topic</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;estaciones/estacion_01_xxxxxxxxxxxx/config&#39;</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;{&quot;config&quot;:{&quot;temp_max&quot;:28,&quot;hum_min&quot;:45}}&#39;</span>
+</code></pre></div>
+<p>Posteriormente, el mensaje JSON se convierte automáticamente en un diccionario de MicroPython mediante:</p>
+<div class="highlight"><pre><span></span><code><span class="n">datos</span> <span class="o">=</span> <span class="n">ujson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+<p>obteniendo una estructura como la siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;temp_max&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+        <span class="s2">&quot;hum_min&quot;</span><span class="p">:</span> <span class="mi">45</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A partir de este momento, el programa ya no necesita analizar el nombre del tópico para determinar qué parámetro debe modificar. En su lugar, únicamente recorre el diccionario contenido en la clave <code>config</code>.</p>
+<p>Conceptualmente, el procesamiento puede representarse de la siguiente manera:</p>
+<div class="highlight"><pre><span></span><code>Mensaje recibido
+        │
+        ▼
+Convertir JSON
+        │
+        ▼
+Diccionario
+        │
+        ▼
+Recorrer config
+        │
+        ▼
+Actualizar únicamente
+los parámetros recibidos
+</code></pre></div>
+<p>Esta estrategia ofrece una mayor flexibilidad, ya que un mismo mensaje puede modificar uno o varios parámetros simultáneamente sin necesidad de utilizar múltiples tópicos de configuración.</p>
+<p>En la siguiente sección se implementará la función <code>callback()</code> completa, la cual recorrerá el diccionario recibido, validará los valores de cada parámetro y actualizará la configuración de la estación ambiental durante la ejecución del programa.</p>
+<h2 id="46-recepcion-de-mensajes-desde-el-broker">4.6 Recepción de mensajes desde el broker</h2>
+<p>Una vez definida la función <em>callback</em>, el siguiente paso consiste en indicar al cliente MQTT a qué tópico desea suscribirse y verificar periódicamente si el broker ha enviado nuevos mensajes.</p>
+<p>Este proceso se realiza en tres etapas:</p>
+<ol>
+<li>Registrar la función <em>callback</em>.</li>
+<li>Suscribirse al tópico de configuración.</li>
+<li>Revisar continuamente si existen mensajes pendientes.</li>
+</ol>
+<h3 id="registrar-la-funcion-callback">Registrar la función callback</h3>
+<p>Después de crear la conexión con el broker MQTT, se registra la función que procesará los mensajes recibidos.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cliente_mqtt</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+</code></pre></div>
+<p>A partir de este momento, cualquier mensaje recibido en el tópico de configuración será enviado automáticamente a la función <code>callback()</code>.</p>
+<h3 id="suscribirse-al-topico-de-configuracion">Suscribirse al tópico de configuración</h3>
+<p>Posteriormente, el cliente MQTT debe indicar al broker cuál es el tópico que desea escuchar.</p>
+<p>En este proyecto la estación ambiental se suscribirá únicamente al tópico de configuración definido previamente.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cliente_mqtt</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">topic_config</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</code></pre></div>
+<p>Al realizar esta suscripción, el broker registrará que la estación ambiental desea recibir cualquier mensaje publicado en dicho tópico.</p>
+<p>Conceptualmente, el proceso puede representarse así:</p>
+<div class="highlight"><pre><span></span><code>ESP32
+  │
+  └── Suscribe → estaciones/&lt;MQTT_CLIENT_ID&gt;/config
+                     │
+                     ▼
+                Broker MQTT
+</code></pre></div>
+<p>A partir de este momento, cualquier cliente MQTT podrá publicar un mensaje JSON en el tópico de configuración y el broker lo enviará automáticamente a la estación correspondiente.</p>
+<h3 id="verificar-la-llegada-de-nuevos-mensajes">Verificar la llegada de nuevos mensajes</h3>
+<p>La biblioteca <code>umqtt.simple</code> no ejecuta automáticamente la función <em>callback</em> cuando llega un mensaje. Es necesario que el programa consulte periódicamente al broker para verificar si existen mensajes pendientes.</p>
+<p>Para ello se utiliza el método:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cliente_mqtt</span><span class="o">.</span><span class="n">check_msg</span><span class="p">()</span>
+</code></pre></div>
+<p>Este método realiza las siguientes acciones:</p>
+<ul>
+<li>Consulta al broker si existe algún mensaje pendiente.</li>
+<li>Si no hay mensajes, continúa la ejecución del programa.</li>
+<li>Si existe un mensaje, lo recibe y ejecuta automáticamente la función <em>callback</em> registrada previamente.</li>
+</ul>
+<p>Por esta razón, es recomendable llamar a <code>check_msg()</code> dentro del ciclo principal del programa.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+    <span class="n">cliente_mqtt</span><span class="o">.</span><span class="n">check_msg</span><span class="p">()</span>
+
+    <span class="n">temperatura</span><span class="p">,</span> <span class="n">humedad</span> <span class="o">=</span> <span class="n">obtener_temperatura</span><span class="p">()</span>
+
+    <span class="n">estado</span> <span class="o">=</span> <span class="n">evaluar_estado</span><span class="p">(</span>
+        <span class="n">temperatura</span><span class="p">,</span>
+        <span class="n">humedad</span>
+    <span class="p">)</span>
+
+    <span class="n">publicar_datos</span><span class="p">(</span>
+        <span class="n">cliente_mqtt</span><span class="p">,</span>
+        <span class="n">temperatura</span><span class="p">,</span>
+        <span class="n">humedad</span><span class="p">,</span>
+        <span class="n">estado</span>
+    <span class="p">)</span>
+
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">intervalo_lectura</span><span class="p">)</span>
+</code></pre></div>
+<p>De esta forma, en cada iteración del programa la estación realizará dos tareas principales:</p>
+<ol>
+<li>Verificar si existe una nueva configuración enviada mediante MQTT.</li>
+<li>Continuar con la lectura del sensor y la publicación de los datos ambientales.</li>
+</ol>
+<p>El flujo general de operación será el siguiente:</p>
+<div class="highlight"><pre><span></span><code>Inicio del ciclo
+        │
+        ▼
+check_msg()
+        │
+        ▼
+¿Llegó un mensaje?
+        │
+   ┌────┴────┐
+   │         │
+ No         Sí
+   │         │
+   │         ▼
+   │    Ejecutar callback()
+   │         │
+   └────┬────┘
+        ▼
+Leer DHT22
+        │
+        ▼
+Evaluar estado
+        │
+        ▼
+Publicar datos MQTT
+        │
+        ▼
+Esperar intervalo
+        │
+        ▼
+Repetir
+</code></pre></div>
+<p>Gracias a este mecanismo, la estación ambiental puede seguir publicando sus mediciones periódicamente mientras permanece atenta a cualquier mensaje de configuración enviado desde un cliente MQTT, logrando una comunicación bidireccional sin interrumpir su funcionamiento continuo.</p>
+<h2 id="47-modificacion-remota-de-parametros-locales">4.7 Modificación remota de parámetros locales</h2>
+<p>Una vez que la estación ambiental es capaz de recibir mensajes desde el broker MQTT, el siguiente paso consiste en interpretar el contenido del mensaje y utilizarlo para modificar los parámetros locales que controlan el funcionamiento del programa.</p>
+<p>En este proyecto, los parámetros que podrán modificarse de forma remota son:</p>
+<ul>
+<li>Temperatura máxima (<code>temp_max</code>).</li>
+<li>Humedad mínima (<code>hum_min</code>).</li>
+<li>Humedad máxima (<code>hum_max</code>).</li>
+<li>Intervalo entre lecturas (<code>intervalo_lectura</code>).</li>
+</ul>
+<p>Todos estos parámetros fueron definidos previamente como variables globales al inicio del programa.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp_max</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">hum_min</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">hum_max</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">intervalo_lectura</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre></div>
+<p>Cuando el ESP32 reciba un mensaje en el tópico de configuración, la función <code>callback()</code> convertirá el contenido JSON en un diccionario y recorrerá los parámetros incluidos dentro de la clave <code>config</code>.</p>
+<p>Una implementación simplificada es la siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">parametro</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+    <span class="n">valor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;temp_max&quot;</span><span class="p">:</span>
+        <span class="n">temp_max</span> <span class="o">=</span> <span class="n">valor</span>
+
+    <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;hum_min&quot;</span><span class="p">:</span>
+        <span class="n">hum_min</span> <span class="o">=</span> <span class="n">valor</span>
+
+    <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;hum_max&quot;</span><span class="p">:</span>
+        <span class="n">hum_max</span> <span class="o">=</span> <span class="n">valor</span>
+
+    <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;intervalo_lectura&quot;</span><span class="p">:</span>
+        <span class="n">intervalo_lectura</span> <span class="o">=</span> <span class="n">valor</span>
+</code></pre></div>
+<p>En esta función se utiliza la palabra reservada <code>global</code> para indicar que las variables modificadas corresponden a las definidas fuera de la función y no a variables locales.</p>
+<p>A diferencia de la implementación basada en múltiples tópicos, ahora el programa no necesita identificar qué parámetro se desea modificar a partir del nombre del tópico. Toda la información necesaria se encuentra dentro del documento JSON recibido.</p>
+<p>Por ejemplo, si un cliente MQTT publica el siguiente mensaje:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>la variable:</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp_max</span>
+</code></pre></div>
+<p>pasará automáticamente de:</p>
+<div class="highlight"><pre><span></span><code>30
+</code></pre></div>
+<p>a:</p>
+<div class="highlight"><pre><span></span><code>28
+</code></pre></div>
+<p>De forma similar, si se publica:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;intervalo_lectura&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>la variable:</p>
+<div class="highlight"><pre><span></span><code><span class="n">intervalo_lectura</span>
+</code></pre></div>
+<p>cambiará su valor de:</p>
+<div class="highlight"><pre><span></span><code>2
+</code></pre></div>
+<p>a:</p>
+<div class="highlight"><pre><span></span><code>5
+</code></pre></div>
+<p>También es posible modificar varios parámetros mediante un único mensaje.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;intervalo_lectura&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>En este caso, la función <code>callback()</code> recorrerá el diccionario <code>config</code> y actualizará únicamente los parámetros presentes en el mensaje, manteniendo sin cambios cualquier otro parámetro de configuración.</p>
+<p>El proceso completo puede representarse mediante el siguiente diagrama:</p>
+<div class="highlight"><pre><span></span><code>Cliente MQTT
+       │
+       │ Publica JSON
+       ▼
+Broker MQTT
+       │
+       ▼
+ESP32
+       │
+       ▼
+callback()
+       │
+       ▼
+Convierte JSON
+       │
+       ▼
+Recorre config
+       │
+       ▼
+Actualiza variables
+       │
+       ▼
+El programa continúa utilizando
+los nuevos valores
+</code></pre></div>
+<p>Este mecanismo constituye una de las principales ventajas de utilizar mensajes JSON para la configuración remota. Además de reducir el número de tópicos MQTT necesarios, permite agrupar múltiples parámetros en un solo mensaje, simplifica la comunicación entre dispositivos y facilita la incorporación de nuevas opciones de configuración conforme evoluciona el sistema IoT.</p>
+<h2 id="48-validacion-de-comandos-recibidos">4.8 Validación de comandos recibidos</h2>
+<p>Aunque la estación ambiental ya puede recibir mensajes y modificar sus parámetros locales, es importante considerar que no todos los mensajes enviados desde un cliente MQTT necesariamente serán correctos.</p>
+<p>Por ejemplo, un cliente podría enviar un mensaje con una estructura JSON incorrecta, utilizar un nombre de parámetro inexistente o proporcionar un valor fuera del rango permitido.</p>
+<p>Por ejemplo, el siguiente mensaje contiene un valor no numérico:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Mientras que el siguiente contiene un valor fuera del rango esperado:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>En ambos casos, la estación debe evitar modificar su configuración con información inválida.</p>
+<p>Por esta razón, la función <code>callback()</code> incorpora mecanismos básicos de validación antes de actualizar las variables del programa.</p>
+<p>La validación realizada contempla los siguientes aspectos:</p>
+<ul>
+<li>Verificar que el mensaje recibido tenga formato JSON válido.</li>
+<li>Comprobar que exista la clave <code>config</code>.</li>
+<li>Validar que cada parámetro recibido sea reconocido.</li>
+<li>Convertir cada valor al tipo de dato esperado.</li>
+<li>Verificar que el valor se encuentre dentro del rango permitido.</li>
+</ul>
+<p>Una parte de esta validación puede observarse en el siguiente fragmento del programa:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">parametro</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+    <span class="n">valor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;temp_max&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">:</span>
+            <span class="n">temp_max</span> <span class="o">=</span> <span class="n">valor</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;hum_min&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">hum_min</span> <span class="o">=</span> <span class="n">valor</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;hum_max&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">hum_max</span> <span class="o">=</span> <span class="n">valor</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;intervalo_lectura&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">:</span>
+            <span class="n">intervalo_lectura</span> <span class="o">=</span> <span class="n">valor</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parametro desconocido:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+</code></pre></div>
+<p>Toda esta lógica se encuentra protegida mediante un bloque <code>try-except</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">datos</span> <span class="o">=</span> <span class="n">ujson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="o">...</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al procesar JSON:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p>De esta manera, si el mensaje recibido no tiene un formato JSON válido o alguno de sus valores no puede convertirse correctamente al tipo de dato esperado, el programa continúa ejecutándose sin interrumpir la operación de la estación ambiental.</p>
+<p>Los rangos utilizados para validar cada parámetro son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Rango permitido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>temp_max</code></td>
+<td>0 a 60 °C</td>
+</tr>
+<tr>
+<td><code>hum_min</code></td>
+<td>0 a 100 %</td>
+</tr>
+<tr>
+<td><code>hum_max</code></td>
+<td>0 a 100 %</td>
+</tr>
+<tr>
+<td><code>intervalo_lectura</code></td>
+<td>1 a 60 segundos</td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, si se recibe el siguiente mensaje:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>la salida será similar a:</p>
+<div class="highlight"><pre><span></span><code>Valor fuera de rango: temp_max
+</code></pre></div>
+<p>En cambio, si se recibe un parámetro no reconocido:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temperatura_maxima&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>la estación mostrará:</p>
+<div class="highlight"><pre><span></span><code>Parametro desconocido: temperatura_maxima
+</code></pre></div>
+<p>y continuará funcionando normalmente.</p>
+<p>La validación de los mensajes constituye una práctica fundamental en aplicaciones IoT, ya que evita configuraciones incorrectas, reduce la posibilidad de errores durante la ejecución y mejora la confiabilidad del sistema.</p>
+<p>En aplicaciones reales, este mecanismo puede complementarse con autenticación del broker, conexiones cifradas mediante TLS, control de acceso a los tópicos MQTT, confirmación de cambios y almacenamiento persistente de la configuración recibida.</p>
+<h2 id="49-codigo-integrado-wifi-mqtt-oled-configuracion-remota-mediante-json">4.9 Código integrado WiFi + MQTT + OLED + configuración remota mediante JSON</h2>
+<p>A continuación se presenta el código integrado de la estación ambiental. En esta versión, el ESP32 se conecta a una red WiFi, publica la temperatura, la humedad y el estado ambiental mediante MQTT, y además permanece suscrito <strong>al tópico de configuración remota</strong>.</p>
+<p>A diferencia de la versión desarrollada en el tema anterior, la configuración ya no se recibe mediante varios tópicos independientes. En su lugar, se utiliza un único tópico que transporta un mensaje en formato JSON. Esta estrategia simplifica la administración de la estación y permite modificar uno o varios parámetros utilizando un solo mensaje.</p>
+<p>El tópico de configuración utilizado será:</p>
+<div class="highlight"><pre><span></span><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/config
+</code></pre></div>
+<p>donde <code>&lt;MQTT_CLIENT_ID&gt;</code> corresponde al identificador único generado para cada estación.</p>
+<p>El formato esperado del mensaje es el siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;intervalo_lectura&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>También es posible modificar únicamente uno de los parámetros:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Para procesar mensajes JSON en MicroPython se utiliza la biblioteca <code>ujson</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ujson</span>
+</code></pre></div>
+<h3 id="definicion-del-topico-de-configuracion">Definición del tópico de configuración</h3>
+<p>En lugar de definir un tópico por cada parámetro, ahora se utiliza un único tópico para recibir toda la configuración.</p>
+<div class="highlight"><pre><span></span><code><span class="n">topic_config</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/config&quot;</span>
+</code></pre></div>
+<h3 id="funcion-callback">Función callback</h3>
+<p>La función <code>callback()</code> recibe el mensaje publicado por el broker MQTT, convierte el contenido JSON en un diccionario de MicroPython y posteriormente recorre los parámetros recibidos para actualizar únicamente aquellos que fueron enviados por el cliente MQTT.</p>
+<p>Durante este proceso también se realiza una validación básica de cada parámetro para evitar asignar valores fuera de los rangos esperados.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+    <span class="k">global</span> <span class="n">temp_max</span>
+    <span class="k">global</span> <span class="n">hum_min</span>
+    <span class="k">global</span> <span class="n">hum_max</span>
+    <span class="k">global</span> <span class="n">intervalo_lectura</span>
+
+    <span class="n">topic</span> <span class="o">=</span> <span class="n">topic</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">topic</span> <span class="o">!=</span> <span class="n">topic_config</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">datos</span> <span class="o">=</span> <span class="n">ujson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;config&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">datos</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No existe la clave config&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">config</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">parametro</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="n">valor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;temp_max&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">:</span>
+                    <span class="n">temp_max</span> <span class="o">=</span> <span class="n">valor</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">parametro</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;hum_min&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+                    <span class="n">hum_min</span> <span class="o">=</span> <span class="n">valor</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">parametro</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;hum_max&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+                    <span class="n">hum_max</span> <span class="o">=</span> <span class="n">valor</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">parametro</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">parametro</span> <span class="o">==</span> <span class="s2">&quot;intervalo_lectura&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">valor</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">:</span>
+                    <span class="n">intervalo_lectura</span> <span class="o">=</span> <span class="n">valor</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">parametro</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor fuera de rango:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parametro desconocido:&quot;</span><span class="p">,</span> <span class="n">parametro</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Configuración actualizada&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al procesar JSON:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="suscripcion-al-topico-de-configuracion">Suscripción al tópico de configuración</h3>
+<p>Después de establecer la conexión con el broker MQTT, el cliente se suscribe al tópico de configuración.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cliente</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">topic_config</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</code></pre></div>
+<p>Por lo tanto, la función <code>conectar_mqtt()</code> queda de la siguiente manera:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">conectar_mqtt</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cliente</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="n">MQTT_CLIENT_ID</span><span class="p">,</span>
+            <span class="n">server</span><span class="o">=</span><span class="n">MQTT_BROKER</span><span class="p">,</span>
+            <span class="n">port</span><span class="o">=</span><span class="n">MQTT_PORT</span><span class="p">,</span>
+            <span class="n">keepalive</span><span class="o">=</span><span class="mi">60</span>
+        <span class="p">)</span>
+
+        <span class="n">cliente</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+        <span class="n">cliente</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+        <span class="n">cliente</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">topic_config</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conectado a broker MQTT&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Broker:&quot;</span><span class="p">,</span> <span class="n">MQTT_BROKER</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Puerto:&quot;</span><span class="p">,</span> <span class="n">MQTT_PORT</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client ID:&quot;</span><span class="p">,</span> <span class="n">MQTT_CLIENT_ID</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Suscrito al topico:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">topic_config</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">cliente</span>
+
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al conectar con MQTT&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Broker:&quot;</span><span class="p">,</span> <span class="n">MQTT_BROKER</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Puerto:&quot;</span><span class="p">,</span> <span class="n">MQTT_PORT</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client ID:&quot;</span><span class="p">,</span> <span class="n">MQTT_CLIENT_ID</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalle:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">raise</span>
+</code></pre></div>
+<p>Gracias a esta estructura, el ESP32 puede actualizar únicamente los parámetros enviados por el cliente MQTT, manteniendo sin cambios el resto de la configuración.</p>
+<p>El uso de un único tópico y mensajes en formato JSON simplifica la comunicación, reduce el número de suscripciones necesarias y hace que el protocolo sea más flexible para futuras ampliaciones del proyecto.</p>
+<p>Esta ampliación permite que la estación ambiental evolucione de un sistema de monitoreo hacia un nodo IoT capaz de recibir configuraciones remotas durante su operación, sentando las bases para aplicaciones de automatización y control que se desarrollarán en temas posteriores.</p>
+<h3 id="codigo-integrado-final">Código integrado final</h3>
+<p>A continuación se presenta el código integrado completo de la estación ambiental con soporte para WiFi, MQTT, publicación de datos ambientales y configuración remota mediante mensajes JSON.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Con WiFi + MQTT + OLED I2C + Configuracion remota mediante JSON</span>
+
+<span class="c1"># (Código completo mostrado en la siguiente sección)</span>
+</code></pre></div>
+<p>En esta versión del programa se realizaron los siguientes cambios respecto al código desarrollado en el Tema 3:</p>
+<ul>
+<li>Se agregó la biblioteca <code>ujson</code> para procesar mensajes en formato JSON.</li>
+<li>Se sustituyeron los cuatro tópicos de configuración por un único tópico general.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">topic_config</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/config&quot;</span>
+</code></pre></div>
+<ul>
+<li>Los tópicos de publicación utilizan <code>MQTT_CLIENT_ID</code>, permitiendo que cada estación publique sobre rutas únicas dentro del broker MQTT.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">topic_temp</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/temperatura&quot;</span>
+<span class="n">topic_hum</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/humedad&quot;</span>
+<span class="n">topic_estado</span> <span class="o">=</span> <span class="s2">&quot;estaciones/&quot;</span> <span class="o">+</span> <span class="n">MQTT_CLIENT_ID</span> <span class="o">+</span> <span class="s2">&quot;/estado&quot;</span>
+</code></pre></div>
+<ul>
+<li>La función <code>callback()</code> ahora recibe un mensaje JSON con la clave <code>config</code>.</li>
+<li>El contenido de <code>config</code> se recorre mediante un diccionario utilizando <code>items()</code>.</li>
+<li>Se incorporó validación de rangos antes de actualizar cada parámetro.</li>
+<li>La estación se suscribe únicamente al tópico <code>topic_config</code>.</li>
+<li>Se mantiene la revisión continua de mensajes mediante <code>cliente_mqtt.check_msg()</code> dentro del ciclo principal.</li>
+</ul>
+<p>El siguiente mensaje JSON permite modificar varios parámetros simultáneamente:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;intervalo_lectura&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Este mensaje debe publicarse en el tópico:</p>
+<div class="highlight"><pre><span></span><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/config
+</code></pre></div>
+<p>donde <code>&lt;MQTT_CLIENT_ID&gt;</code> corresponde al identificador único generado por la estación.</p>
+<h3 id="reto-propuesto">Reto propuesto</h3>
+<p>Como actividad adicional, se propone extender el protocolo de comunicación para incorporar una nueva sección denominada <code>command</code>, destinada a ejecutar acciones remotas sobre actuadores conectados a la ESP32.</p>
+<p>Por ejemplo, controlar el LED integrado conectado al pin GPIO 2 mediante mensajes como los siguientes:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;led&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>o</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;led&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>El objetivo del reto es modificar la función <code>callback()</code> para que, además de procesar la sección <code>config</code>, también sea capaz de interpretar la sección <code>command</code> y ejecutar la acción correspondiente sobre el dispositivo indicado.</p>
+<h2 id="410-prueba-desde-cliente-mqtt">4.10 Prueba desde cliente MQTT</h2>
+<p>Una vez que la estación ambiental se encuentra conectada al broker MQTT, es posible verificar su funcionamiento utilizando un cliente MQTT externo.</p>
+<p>Durante este taller se utilizará el cliente web <strong>MQTTX Web Client</strong>, el cual permite conectarse a un broker MQTT, visualizar los mensajes publicados por la estación y enviar configuraciones remotas sin necesidad de instalar software adicional.</p>
+<h3 id="cliente-web-mqtt-recomendado">Cliente web MQTT recomendado</h3>
+<p>El cliente web puede abrirse desde la siguiente dirección:</p>
+<div class="highlight"><pre><span></span><code>https://mqttx.app/web-client
+</code></pre></div>
+<h3 id="configuracion-de-la-conexion">Configuración de la conexión</h3>
+<p>Después de abrir la página, se debe crear una nueva conexión utilizando los siguientes parámetros:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nombre de conexión</td>
+<td><code>Estación Ambiental</code></td>
+</tr>
+<tr>
+<td>Host</td>
+<td><code>broker.emqx.io</code></td>
+</tr>
+<tr>
+<td>Puerto</td>
+<td><code>8084</code></td>
+</tr>
+<tr>
+<td>Path</td>
+<td><code>/mqtt</code></td>
+</tr>
+<tr>
+<td>SSL/TLS</td>
+<td>Activado</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>Dejar vacío</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Dejar vacío</td>
+</tr>
+</tbody>
+</table>
+<p>Una vez configurados estos parámetros, se puede establecer la conexión con el broker MQTT.</p>
+<h3 id="monitoreo-de-los-datos-publicados">Monitoreo de los datos publicados</h3>
+<p>Para observar la información enviada por la estación ambiental, se recomienda suscribirse al siguiente tópico:</p>
+<div class="highlight"><pre><span></span><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/#
+</code></pre></div>
+<p>donde <code>&lt;MQTT_CLIENT_ID&gt;</code> corresponde al identificador generado por la ESP32.</p>
+<p>Gracias al comodín <code>#</code>, el cliente recibirá todos los mensajes publicados por la estación:</p>
+<div class="highlight"><pre><span></span><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/temperatura
+estaciones/&lt;MQTT_CLIENT_ID&gt;/humedad
+estaciones/&lt;MQTT_CLIENT_ID&gt;/estado
+</code></pre></div>
+<p>Cada vez que la ESP32 realice una nueva lectura del sensor DHT22, los valores aparecerán automáticamente en el cliente MQTT.</p>
+<h3 id="envio-de-una-configuracion-remota">Envío de una configuración remota</h3>
+<p>Para modificar la configuración de la estación, se debe publicar un mensaje sobre el tópico:</p>
+<div class="highlight"><pre><span></span><code>estaciones/&lt;MQTT_CLIENT_ID&gt;/config
+</code></pre></div>
+<p>utilizando como contenido el siguiente documento JSON:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hum_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;intervalo_lectura&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>También es posible modificar únicamente uno de los parámetros.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;temp_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Una vez publicado el mensaje, la estación ambiental recibirá automáticamente la nueva configuración, actualizará los parámetros correspondientes y continuará operando sin necesidad de reiniciar el programa.</p>
+<h3 id="resultado-esperado">Resultado esperado</h3>
+<p>Si la comunicación se realizó correctamente, en la consola del ESP32 se observará una salida similar a la siguiente:</p>
+<div class="highlight"><pre><span></span><code>temp_max = 28
+hum_min = 45
+hum_max = 75
+intervalo_lectura = 5
+
+Configuracion actualizada
+</code></pre></div>
+<p>Asimismo, en el cliente MQTT continuarán visualizándose las publicaciones periódicas de temperatura, humedad y estado ambiental, ahora utilizando los nuevos parámetros de operación.</p>
+<p>Con esta prueba se verifica que la estación ambiental es capaz de mantener una comunicación bidireccional mediante MQTT: por un lado publica continuamente la información del sensor y, por otro, recibe configuraciones remotas en tiempo real utilizando un único tópico y mensajes en formato JSON.</p>
+<h2 id="411-resultado-esperado-del-incremento">4.11 Resultado esperado del incremento</h2>
+<p>Al finalizar este incremento, la estación ambiental habrá evolucionado de un nodo IoT capaz únicamente de publicar información hacia un dispositivo con comunicación bidireccional mediante MQTT.</p>
+<p>En esta versión, la estación será capaz de:</p>
+<ul>
+<li>Conectarse a una red WiFi.</li>
+<li>Publicar periódicamente la temperatura, la humedad y el estado ambiental mediante MQTT.</li>
+<li>Suscribirse a un tópico de configuración remota.</li>
+<li>Recibir mensajes JSON enviados desde un cliente MQTT.</li>
+<li>Procesar la información contenida en la sección <code>config</code> del mensaje.</li>
+<li>Validar los valores recibidos antes de modificar la configuración.</li>
+<li>Actualizar en tiempo real los parámetros de operación sin reiniciar el programa.</li>
+<li>Continuar monitoreando el entorno mientras permanece atenta a nuevas configuraciones remotas.</li>
+</ul>
+<p>El comportamiento general de la estación puede representarse mediante el siguiente diagrama:</p>
+<div class="highlight"><pre><span></span><code>                 Cliente MQTT
+           (Monitoreo y Configuración)
+                    ▲           │
+                    │           │
+     Publicación    │           │ JSON
+                    │           ▼
+               Broker MQTT (EMQX)
+                    ▲
+                    │
+                    │
+                  ESP32
+          ┌─────────┴─────────┐
+          ▼                   ▼
+       Sensor DHT22       Pantalla OLED
+</code></pre></div>
+<p>Con este incremento, el proyecto integrador da un paso importante hacia la construcción de un sistema IoT distribuido, ya que las estaciones ambientales pueden ser administradas de forma remota sin necesidad de intervención física sobre cada dispositivo.</p>
+<p>Además, la utilización de MQTT como mecanismo de comunicación bidireccional y el empleo de mensajes en formato JSON sientan las bases para incorporar funcionalidades más avanzadas, como la sincronización de configuraciones entre múltiples estaciones, el envío de comandos de actuación y la integración con plataformas de almacenamiento y visualización de datos.</p>
+<p>En el siguiente tema, las estaciones ambientales dejarán de depender únicamente del broker MQTT para el intercambio de información y comenzarán a integrarse con una base de datos en la nube mediante Supabase. Esto permitirá almacenar históricamente las mediciones, consultar información desde aplicaciones web y construir un tablero de monitoreo centralizado para toda la red distribuida de estaciones ambientales.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Taller de MicroPython para Sistemas Embebidos e IoT<br>
+© 2026 Patricia Elizabeth Figueroa Millán (Tecnológico Nacional de México – Instituto Tecnológico de Colima) ·
+Ismael Amezcua Valdovinos (Universidad de Colima – Facultad de Telemática)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
