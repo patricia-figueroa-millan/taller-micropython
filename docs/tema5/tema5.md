@@ -1,6 +1,5 @@
 # Base de Datos en Supabase para Proyectos IoT
 
-## Introducción
 
 Hasta este punto del proyecto, las estaciones ambientales han sido capaces de medir variables físicas, visualizarlas localmente y transmitirlas mediante MQTT. Sin embargo, para construir aplicaciones IoT reales es necesario almacenar la información de manera permanente para posteriormente consultarla, analizarla, generar reportes o visualizar históricos.
 
@@ -19,19 +18,8 @@ Crear un proyecto en Supabase y una tabla para almacenar las variables ambiental
 # Competencias a desarrollar
 
 - Crear proyectos en Supabase.
-- Comprender la estructura de una base de datos PostgreSQL.
 - Diseñar una tabla para almacenar datos IoT.
-- Utilizar el editor SQL de Supabase.
 - Preparar una base de datos para recibir información desde aplicaciones externas.
-
----
-
-# Material requerido
-
-- Computadora con acceso a Internet.
-- Navegador web.
-- Cuenta de correo electrónico.
-- Proyecto del taller desarrollado hasta la sesión anterior.
 
 ---
 
@@ -185,6 +173,7 @@ La estructura de la tabla será similar a la siguiente:
 |----|------------|------------|--------------|----------|---------|---------|
 
 [^1]: Después de crear la columna **`station_id`**, haga clic en **Opciones adicionales (⚙️)** y desmarque **Is Nullable**.
+
 [^2]: Para la columna **`origen`**, haga clic en el ícono de **Opciones adicionales (⚙️)** y desmarque la opción **Is Nullable**. Posteriormente, en el campo **Default Value**, escriba **`'mqtt'`**. De esta manera, todos los registros almacenarán automáticamente el valor **`mqtt`**, identificando que la información fue recibida a través del servicio MQTT.
 
 Deberá quedarle algo como se muestra en la pantalla siguiente:
@@ -239,20 +228,6 @@ Copie la siguiente información:
 Esta dirección corresponde al punto de acceso de la API REST de Supabase y será utilizada por el servicio desarrollado en MicroPython para insertar las mediciones en la base de datos.
 
 > **Nota:** Posteriormente se agregará a esta dirección el nombre de la tabla para construir el endpoint completo que utilizará el servicio en Python.
----
-## Resultado esperado
-
-Al finalizar la práctica se deberá contar con:
-
-- Una cuenta en Supabase.
-- Un proyecto creado.
-- Una base de datos PostgreSQL.
-- Una tabla para almacenar las mediciones ambientales.
-- La API URL del proyecto.
-- La Secret key del proyecto.
-
-La base de datos quedará lista para recibir las mediciones generadas por la estación IoT en la siguiente práctica, donde se desarrollará el servicio en Python encargado de almacenar automáticamente la información proveniente del broker MQTT.
-
 ---
 # Resultado esperado
 
